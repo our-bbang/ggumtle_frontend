@@ -35,4 +35,13 @@ const LayoutContainer = styled.div`
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   margin: 0px auto;
+
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
+    display: none;
+  }
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
 `;
