@@ -5,6 +5,7 @@ import GlobalFonts from '@assets/fonts';
 import { Layout } from '@layout/index';
 
 import { LandingPage } from '@pages/Landing';
+import { WritePage } from '@pages/Write';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path={'/'} element={<LandingPage />} />
+          <Route path={'/write'} element={<WritePage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
