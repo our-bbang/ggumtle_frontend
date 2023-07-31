@@ -1,3 +1,11 @@
+import { MainText } from '@components/write/MainText';
+import { WriteArea } from '@components/write/WriteArea';
+
 export const WritePage = () => {
-  return <>작성 페이지</>;
+  return (
+    <>
+      <MainText />
+      <WriteArea />
+    </>
+  );
 };
