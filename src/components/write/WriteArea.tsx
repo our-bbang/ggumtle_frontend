@@ -1,16 +1,34 @@
 import styled from 'styled-components';
+import { useState, FormEvent } from 'react';
 
 export const WriteArea = () => {
+  const [text, setText] = useState('');
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (text.length > 0) {
+      console.log('제출');
+    }
+  };
+
   return (
-    <WriteAreaContainer>
-      <InputBox placeholder="내가 이루고 싶은 꿈은?" maxLength={100} />
+    <WriteAreaContainer onSubmit={handleSubmit}>
+      <TextBox
+        placeholder="내가 이루고 싶은 꿈은?"
+        maxLength={100}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        className={text.length > 0 ? 'green' : ''}
+      />
       <MaxLengthText>최대 100자</MaxLengthText>
-      <CompleteBtn>입력완료</CompleteBtn>
+      <CompleteBtn type="submit" className={text.length > 0 ? 'active' : ''}>
+        입력완료
+      </CompleteBtn>
     </WriteAreaContainer>
   );
 };
 
-const WriteAreaContainer = styled.div`
+const WriteAreaContainer = styled.form`
   width: 100%;
 
   display: flex;
@@ -20,7 +38,7 @@ const WriteAreaContainer = styled.div`
   padding-top: 40px;
 `;
 
-const InputBox = styled.textarea`
+const TextBox = styled.textarea`
   width: 360px;
   height: 120px;
   padding: 12px;
@@ -38,6 +56,9 @@ const InputBox = styled.textarea`
   color: ${({ theme }) => theme.colors.gray_900};
 
   &:focus {
+    border: 1px solid ${({ theme }) => theme.colors.green};
+  }
+  &.green {
     border: 1px solid ${({ theme }) => theme.colors.green};
   }
 `;
@@ -65,4 +86,12 @@ const CompleteBtn = styled.button`
   font-family: 'PretendardMedium';
   font-size: 16px;
   color: #525463;
+
+  &.active {
+    background-color: ${({ theme }) => theme.colors.green};
+    color: white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
