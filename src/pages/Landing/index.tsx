@@ -1,14 +1,23 @@
 import { styled } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import { MainLogo } from '@components/landing/MainLogo';
-import { BottomStartBtn } from '@components/landing/BottomStartBtn';
+import { BottomBtn } from '@components/buttons/BottomBtn';
 
 export const LandingPage = () => {
+  const navigate = useNavigate();
+
+  const handleClickStartBtn = () => {
+    navigate('/write');
+  };
+
   return (
     <LandingPageContainer>
       <MainLogo />
       <Box>추가 설명</Box>
-      <BottomStartBtn />
+      <BtnContainer>
+        <StartBtn onClick={handleClickStartBtn}>시작하기</StartBtn>
+      </BtnContainer>
     </LandingPageContainer>
   );
 };
@@ -22,3 +31,17 @@ const Box = styled.div`
   height: 1000px;
   background-color: lightgray;
 `;
+
+const BtnContainer = styled.div`
+  width: 100%;
+  max-width: 460px;
+  height: 80px;
+
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StartBtn = styled(BottomBtn)``;

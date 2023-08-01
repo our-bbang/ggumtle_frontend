@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState, FormEvent } from 'react';
+import { BottomBtn } from '@components/buttons/BottomBtn';
 
 export const WriteArea = () => {
   const [text, setText] = useState('');
@@ -21,7 +22,10 @@ export const WriteArea = () => {
         className={text.length > 0 ? 'green' : ''}
       />
       <MaxLengthText>최대 100자</MaxLengthText>
-      <CompleteBtn type="submit" className={text.length > 0 ? 'active' : ''}>
+      <CompleteBtn
+        type="submit"
+        status={text.length > 0 ? 'active' : 'disabled'}
+      >
         입력완료
       </CompleteBtn>
     </WriteAreaContainer>
@@ -73,25 +77,6 @@ const MaxLengthText = styled.div`
   color: #525463;
 `;
 
-const CompleteBtn = styled.button`
-  width: 360px;
-  height: 52px;
+const CompleteBtn = styled(BottomBtn)`
   margin-top: 20px;
-
-  border: none;
-  border-radius: 8px;
-
-  background-color: rgba(133, 136, 153, 0.08);
-
-  font-family: 'PretendardMedium';
-  font-size: 16px;
-  color: #525463;
-
-  &.active {
-    background-color: ${({ theme }) => theme.colors.green};
-    color: white;
-    &:hover {
-      cursor: pointer;
-    }
-  }
 `;
