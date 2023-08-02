@@ -2,11 +2,9 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
-type BtnStatus = 'active' | 'disabled';
-
-export interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface BtnPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  status?: BtnStatus;
+  btnstatus?: 'active' | 'disabled';
   width?: string;
   height?: string;
   borderRadius?: string;
@@ -15,52 +13,7 @@ export interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-export const BottomBtn = ({
-  className,
-  handleClick,
-  children,
-  ...props
-}: BtnProps) => {
-  return (
-    <BottomBtnWrapper className={className} onClick={handleClick} {...props}>
-      {children}
-    </BottomBtnWrapper>
-  );
-};
-
-const statusStyle = css<BtnProps>`
-  ${({ status = 'active' }) => {
-    if (status === 'active') {
-      return css`
-        background-color: ${({ theme }) => theme.colors.green};
-        color: white;
-        &:hover {
-          background-color: ${({ theme }) => theme.colors.green_dark};
-          cursor: pointer;
-        }
-      `;
-    }
-    if (status === 'disabled') {
-      return css`
-        background-color: rgba(133, 136, 153, 0.08);
-        color: #525463;
-      `;
-    }
-  }}
-`;
-
-const BottomBtnWrapper = styled.button<BtnProps>`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-
-  user-select: none;
-
-  transition: background-color 0.1s ease;
-
-  font-family: 'PretendardMedium';
-
+const BtnCustomStyle = css<BtnPropsType>`
   ${({
     width = '360px',
     height = '52px',
@@ -72,6 +25,47 @@ const BottomBtnWrapper = styled.button<BtnProps>`
     border-radius: ${borderRadius};
     font-size: ${fontSize};
   `};
-
-  ${statusStyle};
 `;
+
+const BtnStatusStyle = css<BtnPropsType>`
+  background-color: ${({ theme }) => theme.colors.green};
+  color: white;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.green_dark};
+    cursor: pointer;
+  }
+  &.disabled {
+    background-color: rgba(133, 136, 153, 0.08);
+    color: #525463;
+    cursor: default;
+  }
+`;
+
+const BtnBase = styled.button<BtnPropsType>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+  user-select: none;
+
+  transition: background-color 0.1s ease;
+
+  font-family: 'PretendardMedium';
+
+  ${BtnCustomStyle}
+  ${BtnStatusStyle}
+`;
+
+export const BottomBtn = ({
+  className,
+  handleClick,
+  children,
+  ...props
+}: BtnPropsType) => {
+  return (
+    <BtnBase className={className} onClick={handleClick} {...props}>
+      {children}
+    </BtnBase>
+  );
+};
