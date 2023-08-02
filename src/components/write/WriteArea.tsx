@@ -24,7 +24,7 @@ export const WriteArea = () => {
       <MaxLengthText>최대 100자</MaxLengthText>
       <CompleteBtn
         type="submit"
-        status={text.length > 0 ? 'active' : 'disabled'}
+        className={text.length > 0 ? 'active' : 'disabled'}
       >
         입력완료
       </CompleteBtn>
