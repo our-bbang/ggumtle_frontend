@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState, FormEvent } from 'react';
-import { BottomBtn } from '@components/common/BottomBtn';
+import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 export const WriteArea = () => {
   const [text, setText] = useState('');
