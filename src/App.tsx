@@ -7,8 +7,10 @@ import GlobalFonts from '@assets/fonts';
 
 import { Layout } from '@components/layout';
 
+//pages
 import { LandingPage } from '@pages/Landing';
 import { WritePage } from '@pages/Write';
+import { UserInfoPage } from '@pages/UserInfo';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
             <Routes>
               <Route path={'/'} element={<LandingPage />} />
               <Route path={'/write'} element={<WritePage />} />
+              <Route path={'/userinfo'} element={<UserInfoPage />} />
             </Routes>
           </Layout>
         </BrowserRouter>

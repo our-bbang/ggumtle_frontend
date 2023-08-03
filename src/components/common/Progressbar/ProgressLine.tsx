@@ -33,7 +33,7 @@ const fillAnimation = keyframes`
   }
 `;
 
-export const CompletedLine = styled.div<{ progress?: number }>`
+const CompletedLine = styled.div<{ progress?: number }>`
   width: ${(props) => props.progress || 0}%;
   height: 3px;
 

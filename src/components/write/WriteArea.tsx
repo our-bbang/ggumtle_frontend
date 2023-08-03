@@ -1,28 +1,30 @@
 import styled from 'styled-components';
 import { useState, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { useSetRecoilState } from 'recoil';
-import { progressState } from '@recoil/progress';
+import { useProgress } from '@hooks/useProgress';
 
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
-export const WriteArea = () => {
+export function WriteArea() {
+  const navigate = useNavigate();
+  const updateProgress = useProgress();
+
   const [text, setText] = useState('');
-  const setProgress = useSetRecoilState(progressState);
 
   const handleChangeTextBox = (e: FormEvent<HTMLTextAreaElement>) => {
     setText(e.currentTarget.value);
     if (e.currentTarget.value.length === 0) {
-      setProgress(0);
+      updateProgress(0);
     } else if (e.currentTarget.value.length > 0) {
-      setProgress(50);
+      updateProgress(50);
     }
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text.length > 0) {
-      console.log('제출');
+      navigate('/userinfo');
     }
   };
 
@@ -44,7 +46,7 @@ export const WriteArea = () => {
       </CompleteBtn>
     </WriteAreaContainer>
   );
-};
+}
 
 const WriteAreaContainer = styled.form`
   width: 100%;
