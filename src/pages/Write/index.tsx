@@ -1,24 +1,26 @@
-import { useState } from 'react';
-
 import { MainText } from '@components/write/MainText';
 import { WriteArea } from '@components/write/WriteArea';
-import { Modal } from '@components/common/Modal';
+import { Progressbar } from '@components/common/Progressbar';
+import { styled } from 'styled-components';
 
 export const WritePage = () => {
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(true);
   return (
-    <>
-      <Modal
-        isModalOpen={isOpenModal}
-        setIsOpenModal={setIsOpenModal}
-        width="360px"
-        height="400px"
-        padding="20px"
-      >
-        모달
-      </Modal>
+    <WritePageContainer>
+      <ProgressbarContainer>
+        <Progressbar progress={50} />
+      </ProgressbarContainer>
       <MainText />
       <WriteArea />
-    </>
+    </WritePageContainer>
   );
 };
+
+const WritePageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ProgressbarContainer = styled.div`
+  margin-top: 30px;
+`;

@@ -26,7 +26,7 @@ const MainTextContainer = styled.div`
   align-items: center;
   justify-content: end;
 
-  margin: 60px 0 20px;
+  margin: 20px 0 20px;
 `;
 
 const Img = styled.img`
