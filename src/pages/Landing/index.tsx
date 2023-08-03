@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 import { MainLogo } from '@components/landing/MainLogo';
-import { BottomBtn } from '@components/common/BottomBtn';
+import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 export const LandingPage = () => {
   const navigate = useNavigate();
