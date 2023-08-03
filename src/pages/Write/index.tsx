@@ -7,7 +7,7 @@ export const WritePage = () => {
   return (
     <WritePageContainer>
       <ProgressbarContainer>
-        <Progressbar progress={50} />
+        <Progressbar />
       </ProgressbarContainer>
       <MainText />
       <WriteArea />

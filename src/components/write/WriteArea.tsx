@@ -1,9 +1,23 @@
 import styled from 'styled-components';
 import { useState, FormEvent } from 'react';
+
+import { useSetRecoilState } from 'recoil';
+import { progressState } from '@recoil/progress';
+
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 export const WriteArea = () => {
   const [text, setText] = useState('');
+  const setProgress = useSetRecoilState(progressState);
+
+  const handleChangeTextBox = (e: FormEvent<HTMLTextAreaElement>) => {
+    setText(e.currentTarget.value);
+    if (e.currentTarget.value.length === 0) {
+      setProgress(0);
+    } else if (e.currentTarget.value.length > 0) {
+      setProgress(50);
+    }
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,7 +32,7 @@ export const WriteArea = () => {
         placeholder="내가 이루고 싶은 꿈은?"
         maxLength={100}
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleChangeTextBox}
         className={text.length > 0 ? 'green' : ''}
       />
       <MaxLengthText>최대 100자</MaxLengthText>
