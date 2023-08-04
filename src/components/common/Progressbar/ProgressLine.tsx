@@ -33,7 +33,7 @@ const fillAnimation = keyframes`
   }
 `;
 
-const CompletedLine = styled.div<{ progress?: number }>`
+const CompletedLine = styled.div<{ progress: number }>`
   width: ${(props) => props.progress || 0}%;
   height: 3px;
 
@@ -42,6 +42,6 @@ const CompletedLine = styled.div<{ progress?: number }>`
   transform: translate(0, -50%);
 
   background: ${({ theme }) => theme.colors.green};
-  animation: ${fillAnimation} ${({ progress = 0 }) => 0.1 * (progress / 10)}s
-    linear forwards;
+  animation: ${fillAnimation} ${({ progress }) => 0.2 * (progress / 10)}s linear
+    forwards;
 `;
