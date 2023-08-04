@@ -10,6 +10,8 @@ interface InputBoxPropsType extends HTMLAttributes<HTMLDivElement> {
   borderRadius?: string;
   type?: string;
   min?: number;
+  maxLength?: number;
+  placeholder?: string;
   value: any;
   setValue: SetterOrUpdater<any>;
 }
@@ -51,7 +53,7 @@ const InputBoxContainer = styled.div<{
 const StyledInput = styled.input<{ borderRadius?: string }>`
   width: 100%;
   height: 100%;
-  padding: 0 10px;
+  padding: 0 12px;
 
   ${({ borderRadius = '8px' }) => css`
     border-radius: ${borderRadius};
@@ -66,4 +68,7 @@ const StyledInput = styled.input<{ borderRadius?: string }>`
   &.filled {
     border: 1px solid ${({ theme }) => theme.colors.green};
   }
+
+  font-family: 'PretendardMedium';
+  color: ${({ theme }) => theme.colors.gray_800};
 `;

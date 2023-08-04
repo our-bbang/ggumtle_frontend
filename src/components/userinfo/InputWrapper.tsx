@@ -6,18 +6,20 @@ interface InputWrapperPropsType {
 }
 export const InputWrapper = ({ name, children }: InputWrapperPropsType) => {
   return (
-    <FormWrapperContainer>
+    <InputWrapperContainer>
       <Name>{name}</Name>
       {children}
-    </FormWrapperContainer>
+    </InputWrapperContainer>
   );
 };
 
-const FormWrapperContainer = styled.div`
+const InputWrapperContainer = styled.div`
   width: 100%;
 
   display: flex;
   align-items: center;
+
+  margin: 12px 0;
 `;
 
 const Name = styled.div`

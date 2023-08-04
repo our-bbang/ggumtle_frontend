@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
-import { genderState, ageState } from '@recoil/userinput';
+import { genderState, ageState, jobState } from '@recoil/userinput';
 
 import { InputWrapper } from './InputWrapper';
 import { RadioSelection } from '@components/common/Inputs/RadioSelection';
@@ -9,6 +9,7 @@ import { InputBox } from '@components/common/Inputs/InputBox';
 export const UserInputs = () => {
   const [gender, setGender] = useRecoilState(genderState);
   const [age, setAge] = useRecoilState(ageState);
+  const [job, setJob] = useRecoilState(jobState);
 
   return (
     <UserInputsContainer>
@@ -33,7 +34,17 @@ export const UserInputs = () => {
           setValue={setAge}
         />
       </InputWrapper>
-      <InputWrapper name="직업"></InputWrapper>
+      <InputWrapper name="직업">
+        <InputBox
+          width="100%"
+          height="36px"
+          type="text"
+          value={job}
+          setValue={setJob}
+          maxLength={20}
+          placeholder="학생도 괜찮아요!"
+        />
+      </InputWrapper>
     </UserInputsContainer>
   );
 };
@@ -43,4 +54,6 @@ const UserInputsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-bottom: 30px;
 `;
