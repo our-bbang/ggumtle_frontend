@@ -8,3 +8,8 @@ export const genderState = atom<Gender.Male | Gender.Female | 0>({
   key: 'genderState',
   default: 0,
 });
+
+export const ageState = atom<number | undefined>({
+  key: 'ageState',
+  default: 20,
+});
