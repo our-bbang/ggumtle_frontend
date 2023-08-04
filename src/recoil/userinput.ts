@@ -13,3 +13,8 @@ export const ageState = atom<number | undefined>({
   key: 'ageState',
   default: 20,
 });
+
+export const jobState = atom<string>({
+  key: 'jobState',
+  default: '',
+});
