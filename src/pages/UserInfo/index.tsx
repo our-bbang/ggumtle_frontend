@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { ProgressbarWrapper } from '@components/common/Progressbar/ProgressbarWrapper';
 import { Progressbar } from '@components/common/Progressbar';
 import { MainText } from '@components/userinfo/MainText';
+import { UserInputs } from '@components/userinfo/UserInputs';
+import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 import { useProgress } from '@hooks/useProgress';
 import { styled } from 'styled-components';
@@ -23,9 +25,9 @@ export const UserInfoPage = () => {
       <ProgressbarWrapper>
         <Progressbar />
       </ProgressbarWrapper>
-
       <MainText />
-      <button onClick={handleClickBtn}>입력 완료</button>
+      <UserInputs />
+      <BottomBtn onClick={handleClickBtn}>입력 완료</BottomBtn>
     </UserInfoPageContainer>
   );
 };
