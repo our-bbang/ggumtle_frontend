@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
+import { SetterOrUpdater } from 'recoil';
 
 interface RadioSelectionPropsType extends HTMLAttributes<HTMLDivElement> {
   width?: string;
@@ -7,17 +8,37 @@ interface RadioSelectionPropsType extends HTMLAttributes<HTMLDivElement> {
   borderRadius?: string;
   option1?: string;
   option2?: string;
+  selectedOption: number;
+  setOption: SetterOrUpdater<number>;
 }
 
 //두가지 옵션 중에 하나를 선택하는 UI
-export const RadioSelection = ({ ...props }: RadioSelectionPropsType) => {
+export const RadioSelection = ({
+  selectedOption,
+  setOption,
+  ...props
+}: RadioSelectionPropsType) => {
+  const handleClickOption = (option: number) => {
+    setOption(option);
+  };
+
   return (
     <RadioSelectionContainer {...props}>
-      <OptionBtn className="left" borderRadius={props.borderRadius}>
+      <OptionBtn
+        onClick={() => handleClickOption(1)}
+        className={`left ${selectedOption === 1 ? 'selected' : ''}`}
+        borderRadius={props.borderRadius}
+      >
         {props.option1}
       </OptionBtn>
       <DivideLine />
-      <OptionBtn className="right">{props.option2}</OptionBtn>
+      <OptionBtn
+        onClick={() => handleClickOption(2)}
+        className={`right ${selectedOption === 2 ? 'selected' : ''}`}
+        borderRadius={props.borderRadius}
+      >
+        {props.option2}
+      </OptionBtn>
     </RadioSelectionContainer>
   );
 };
