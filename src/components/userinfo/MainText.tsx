@@ -7,7 +7,7 @@ export const MainText = () => {
         src={import.meta.env.BASE_URL + './image/lemon_img.svg'}
         alt="레몬 캐릭터"
       />
-      <Text>정확한 계획표 생성을 위한 정보를 입력해주세요.</Text>
+      <Text>정확한 계획표 생성을 위한 정보가 필요해요.</Text>
     </MainTextContainer>
   );
 };
@@ -29,6 +29,6 @@ const Img = styled.img`
 
 const Text = styled.div`
   font-family: 'PretendardMedium';
-  font-size: 16px;
-  color: ${({ theme }) => theme.colors.gray_800};
+  font-size: 17px;
+  color: ${({ theme }) => theme.colors.gray_900};
 `;
