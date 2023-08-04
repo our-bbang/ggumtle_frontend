@@ -2,14 +2,16 @@ import styled from 'styled-components';
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useProgress } from '@hooks/useProgress';
+import { useInputProgress } from '@hooks/useProgress';
 
 import { BtnBottomContainer } from '@components/common/Buttons/BtnBottomContainer';
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 export function WriteArea() {
   const navigate = useNavigate();
-  const updateProgress = useProgress();
+
+  //완료된 단계의 수를 인자로 받는 hook
+  const updateProgress = useInputProgress();
 
   const [text, setText] = useState('');
 
@@ -18,7 +20,7 @@ export function WriteArea() {
     if (e.currentTarget.value.length === 0) {
       updateProgress(0);
     } else if (e.currentTarget.value.length > 0) {
-      updateProgress(50);
+      updateProgress(1);
     }
   };
 

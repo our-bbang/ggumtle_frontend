@@ -1,14 +1,13 @@
 import styled, { keyframes } from 'styled-components';
-import { useRecoilValue } from 'recoil';
-import { progressState } from '@recoil/progress';
 
-export const ProgressLine = () => {
-  const progress = useRecoilValue<number>(progressState);
-
+interface ProgressLineProps {
+  percent: number;
+}
+export const ProgressLine = ({ percent }: ProgressLineProps) => {
   return (
     <>
       <BackgroundLine />
-      <CompletedLine progress={progress} />
+      <CompletedLine progress={percent} />
     </>
   );
 };

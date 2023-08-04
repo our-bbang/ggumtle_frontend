@@ -1,11 +1,10 @@
 import { useSetRecoilState } from 'recoil';
-import { progressState } from '@recoil/progress';
+import { inputProgressDoneSelector } from '@recoil/progress';
 
-//progress 진행률(%) 전역 상태 업데이트
-export const useProgress = () => {
-  const setProgress = useSetRecoilState(progressState);
-
-  return (progress: number) => {
-    setProgress(progress);
+//progress가 완료된 단계를 나타내는 전역 상태를 업데이트한다.
+export const useInputProgress = () => {
+  const setInputProgressDone = useSetRecoilState(inputProgressDoneSelector);
+  return (completedStep: number) => {
+    setInputProgressDone(completedStep);
   };
 };
