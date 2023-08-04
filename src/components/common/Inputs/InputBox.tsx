@@ -20,7 +20,8 @@ export const InputBox = ({ value, setValue, ...props }: InputBoxPropsType) => {
   const { isFocusedOnce, handleFocus } = useFocusedOnce();
 
   const handleChangeInput = (e: React.FormEvent<HTMLInputElement>) => {
-    setValue(e.currentTarget.value);
+    if (props.type === 'number') setValue(Number(e.currentTarget.value));
+    else setValue(e.currentTarget.value);
   };
 
   return (

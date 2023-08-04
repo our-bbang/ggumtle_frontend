@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 
 export enum Gender {
   Male = 1,
@@ -9,7 +9,7 @@ export const genderState = atom<Gender.Male | Gender.Female | 0>({
   default: 0,
 });
 
-export const ageState = atom<number | undefined>({
+export const ageState = atom<number>({
   key: 'ageState',
   default: 20,
 });
@@ -17,4 +17,14 @@ export const ageState = atom<number | undefined>({
 export const jobState = atom<string>({
   key: 'jobState',
   default: '',
+});
+
+export const isUserInfoCompletedSelector = selector({
+  key: 'isUserInfoCompletedSelector',
+  get: ({ get }) => {
+    const gender = get(genderState);
+    const job = get(jobState);
+
+    return gender !== 0 && job !== '';
+  },
 });
