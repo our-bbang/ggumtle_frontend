@@ -42,7 +42,7 @@ export function WriteArea() {
         type="submit"
         className={text.length > 0 ? 'active' : 'disabled'}
       >
-        입력완료
+        입력 완료
       </CompleteBtn>
     </WriteAreaContainer>
   );
