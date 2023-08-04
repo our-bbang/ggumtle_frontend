@@ -1,9 +1,10 @@
 import styled, { keyframes } from 'styled-components';
+import { useRecoilValue } from 'recoil';
+import { progressState } from '@recoil/progress';
 
-interface PropsType {
-  progress?: number;
-}
-export const ProgressLine = ({ progress }: PropsType) => {
+export const ProgressLine = () => {
+  const progress = useRecoilValue<number>(progressState);
+
   return (
     <>
       <BackgroundLine />
@@ -28,11 +29,11 @@ const fillAnimation = keyframes`
     width: 0;
   }
   to {
-    width: ${(props: PropsType) => (props.progress || 0) + '%'};
+    width: ${(progress) => (progress || 0) + '%'};
   }
 `;
 
-const CompletedLine = styled.div<{ progress?: number }>`
+const CompletedLine = styled.div<{ progress: number }>`
   width: ${(props) => props.progress || 0}%;
   height: 3px;
 
@@ -41,6 +42,6 @@ const CompletedLine = styled.div<{ progress?: number }>`
   transform: translate(0, -50%);
 
   background: ${({ theme }) => theme.colors.green};
-  animation: ${fillAnimation} ${({ progress = 0 }) => 0.1 * (progress / 10)}s
-    linear forwards;
+  animation: ${fillAnimation} ${({ progress }) => 0.2 * (progress / 10)}s linear
+    forwards;
 `;

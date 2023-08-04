@@ -1,14 +1,30 @@
 import styled from 'styled-components';
 import { useState, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { useProgress } from '@hooks/useProgress';
+
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
-export const WriteArea = () => {
+export function WriteArea() {
+  const navigate = useNavigate();
+  const updateProgress = useProgress();
+
   const [text, setText] = useState('');
+
+  const handleChangeTextBox = (e: FormEvent<HTMLTextAreaElement>) => {
+    setText(e.currentTarget.value);
+    if (e.currentTarget.value.length === 0) {
+      updateProgress(0);
+    } else if (e.currentTarget.value.length > 0) {
+      updateProgress(50);
+    }
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text.length > 0) {
-      console.log('제출');
+      navigate('/userinfo');
     }
   };
 
@@ -18,7 +34,7 @@ export const WriteArea = () => {
         placeholder="내가 이루고 싶은 꿈은?"
         maxLength={100}
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleChangeTextBox}
         className={text.length > 0 ? 'green' : ''}
       />
       <MaxLengthText>최대 100자</MaxLengthText>
@@ -30,7 +46,7 @@ export const WriteArea = () => {
       </CompleteBtn>
     </WriteAreaContainer>
   );
-};
+}
 
 const WriteAreaContainer = styled.form`
   width: 100%;

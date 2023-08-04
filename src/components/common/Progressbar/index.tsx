@@ -3,13 +3,10 @@ import styled from 'styled-components';
 import { ProgressLine } from './ProgressLine';
 import { ProgressCircle } from './ProgressCircle';
 
-interface ProgressbarProps {
-  progress: number;
-}
-export const Progressbar = ({ progress }: ProgressbarProps) => {
+export const Progressbar = () => {
   return (
     <ProgressbarContainer>
-      <ProgressLine progress={progress} />
+      <ProgressLine />
       <ProgressCircle size="28px" step={1} status="complete" />
       <ProgressCircle size="28px" step={2} />
     </ProgressbarContainer>
