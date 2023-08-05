@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useProgress } from '@hooks/useProgress';
 
+import { BtnBottomContainer } from '@components/common/Buttons/BtnBottomContainer';
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 export function WriteArea() {
@@ -38,12 +39,14 @@ export function WriteArea() {
         className={text.length > 0 ? 'green' : ''}
       />
       <MaxLengthText>최대 100자</MaxLengthText>
-      <CompleteBtn
-        type="submit"
-        className={text.length > 0 ? 'active' : 'disabled'}
-      >
-        입력 완료
-      </CompleteBtn>
+      <BtnBottomContainer>
+        <CompleteBtn
+          type="submit"
+          className={text.length > 0 ? 'active' : 'disabled'}
+        >
+          입력 완료
+        </CompleteBtn>
+      </BtnBottomContainer>
     </WriteAreaContainer>
   );
 }
@@ -54,6 +57,8 @@ const WriteAreaContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: relative;
 
   padding-top: 40px;
 `;
@@ -93,6 +98,4 @@ const MaxLengthText = styled.div`
   color: #525463;
 `;
 
-const CompleteBtn = styled(BottomBtn)`
-  margin-top: 20px;
-`;
+const CompleteBtn = styled(BottomBtn)``;
