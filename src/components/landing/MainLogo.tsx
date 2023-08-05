@@ -5,7 +5,7 @@ export const MainLogo = () => {
     <MainLogoContainer>
       <Content>
         <LogoImg
-          src={import.meta.env.BASE_URL + './image/main_logo_img.svg'}
+          src={import.meta.env.BASE_URL + './image/landing_main_logo.svg'}
           alt="꿈틀 로고"
         />
         <MainText>목표 달성을 위한 AI 기반 맞춤형 계획 도우미</MainText>
