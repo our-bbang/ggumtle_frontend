@@ -35,7 +35,7 @@ const BtnStatusStyle = css<BtnPropsType>`
     cursor: pointer;
   }
   &.disabled {
-    background-color: rgba(133, 136, 153, 0.08);
+    background-color: #f6f6f7;
     color: #525463;
     cursor: default;
   }
