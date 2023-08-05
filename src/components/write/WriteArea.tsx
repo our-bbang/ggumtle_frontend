@@ -40,12 +40,12 @@ export function WriteArea() {
       />
       <MaxLengthText>최대 100자</MaxLengthText>
       <BtnBottomContainer>
-        <CompleteBtn
+        <BottomBtn
           type="submit"
           className={text.length > 0 ? 'active' : 'disabled'}
         >
           입력 완료
-        </CompleteBtn>
+        </BottomBtn>
       </BtnBottomContainer>
     </WriteAreaContainer>
   );
@@ -97,5 +97,3 @@ const MaxLengthText = styled.div`
   font-size: 11px;
   color: #525463;
 `;
-
-const CompleteBtn = styled(BottomBtn)``;
