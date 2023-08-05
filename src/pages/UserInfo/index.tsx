@@ -9,6 +9,7 @@ import { ProgressbarWrapper } from '@components/common/Progressbar/ProgressbarWr
 import { Progressbar } from '@components/common/Progressbar';
 import { MainText } from '@components/userinfo/MainText';
 import { UserInputs } from '@components/userinfo/UserInputs';
+import { BtnBottomContainer } from '@components/common/Buttons/BtnBottomContainer';
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 import { useProgress } from '@hooks/useProgress';
@@ -39,13 +40,15 @@ export const UserInfoPage = () => {
       </ProgressbarWrapper>
       <MainText />
       <UserInputs />
-      <CompleteBtn
-        onClick={handleClickBtn}
-        className={isUserInfoComplete ? 'active' : 'disabled'}
-        disabled={!isUserInfoComplete}
-      >
-        입력 완료
-      </CompleteBtn>
+      <BtnBottomContainer>
+        <CompleteBtn
+          onClick={handleClickBtn}
+          className={isUserInfoComplete ? 'active' : 'disabled'}
+          disabled={!isUserInfoComplete}
+        >
+          입력 완료
+        </CompleteBtn>
+      </BtnBottomContainer>
     </UserInfoPageContainer>
   );
 };
