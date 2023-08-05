@@ -19,6 +19,7 @@ export const Progressbar = ({
       <ProgressCircle size="28px" step={1} status={'complete'} />
       {Array.from({ length: progressState.total - 1 }, (_, idx) => (
         <ProgressCircle
+          key={idx}
           size="28px"
           step={idx + 2}
           status={
