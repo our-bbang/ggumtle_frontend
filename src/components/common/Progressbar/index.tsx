@@ -1,25 +1,30 @@
 import styled from 'styled-components';
-import { useRecoilValue } from 'recoil';
-import { progressStepState } from '@recoil/progress';
 
 import { ProgressLine } from './ProgressLine';
 import { ProgressCircle } from './ProgressCircle';
 
-export const Progressbar = () => {
-  const steps = useRecoilValue(progressStepState);
+interface ProgressbarPropsType {
+  totalProgressStep: number;
+  completedProgressStep: number;
+  percent: number;
+}
 
+export const Progressbar = ({
+  totalProgressStep,
+  completedProgressStep,
+  percent,
+}: ProgressbarPropsType) => {
   return (
     <ProgressbarContainer>
-      <ProgressLine />
-      {steps.map((el, idx) => {
-        return (
-          <ProgressCircle
-            size="28px"
-            step={idx + 1}
-            status={el ? 'complete' : 'incomplete'}
-          />
-        );
-      })}
+      <ProgressLine percent={percent} />
+      {Array.from({ length: totalProgressStep }, (_, idx) => (
+        <ProgressCircle
+          key={idx}
+          size="28px"
+          step={idx + 1}
+          status={idx + 1 <= completedProgressStep ? 'complete' : 'incomplete'}
+        />
+      ))}
     </ProgressbarContainer>
   );
 };

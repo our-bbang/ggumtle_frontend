@@ -1,24 +1,27 @@
 import { styled } from 'styled-components';
-import { useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+
+import { INPUT_PROGRESS } from '@constants/index';
 
 import { MainText } from '@components/write/MainText';
 import { WriteArea } from '@components/write/WriteArea';
 import { ProgressbarWrapper } from '@components/common/Progressbar/ProgressbarWrapper';
 import { Progressbar } from '@components/common/Progressbar';
 
-import { useProgress } from '@hooks/useProgress';
+import { completedProgress, progressPercent } from '@recoil/progress';
 
 export const WritePage = () => {
-  const updateProgress = useProgress();
-
-  useEffect(() => {
-    updateProgress(0);
-  }, []);
+  const completedProgressStep = useRecoilValue(completedProgress);
+  const percent = useRecoilValue(progressPercent);
 
   return (
     <WritePageContainer>
       <ProgressbarWrapper>
-        <Progressbar />
+        <Progressbar
+          totalProgressStep={INPUT_PROGRESS}
+          completedProgressStep={completedProgressStep}
+          percent={percent}
+        />
       </ProgressbarWrapper>
       <MainText />
       <WriteArea />
