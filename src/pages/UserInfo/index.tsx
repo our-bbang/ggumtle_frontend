@@ -3,6 +3,9 @@ import styled, { css } from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 
+import { INPUT_PROGRESS } from '@constants/index';
+
+import { completedProgress, progressPercent } from '@recoil/progress';
 import { isUserInfoCompletedSelector } from '@recoil/userinput';
 
 import { ProgressbarWrapper } from '@components/common/Progressbar/ProgressbarWrapper';
@@ -16,17 +19,27 @@ import { useProgress } from '@hooks/useProgress';
 
 export const UserInfoPage = () => {
   const navigate = useNavigate();
+
   const updateProgress = useProgress();
+
+  const completedProgressStep = useRecoilValue(completedProgress);
+  const percent = useRecoilValue(progressPercent);
 
   const isUserInfoComplete = useRecoilValue(isUserInfoCompletedSelector);
 
   useEffect(() => {
-    updateProgress(50);
+    updateProgress('percent', 50);
+    updateProgress('completedStep', 1);
   }, []);
 
   useEffect(() => {
-    if (isUserInfoComplete) updateProgress(100);
-    else updateProgress(50);
+    if (isUserInfoComplete) {
+      updateProgress('percent', 100);
+      updateProgress('completedStep', 2);
+    } else {
+      updateProgress('percent', 50);
+      updateProgress('completedStep', 1);
+    }
   }, [isUserInfoComplete]);
 
   const handleClickBtn = () => {
@@ -36,7 +49,11 @@ export const UserInfoPage = () => {
   return (
     <UserInfoPageContainer>
       <ProgressbarWrapper>
-        <Progressbar />
+        <Progressbar
+          totalProgressStep={INPUT_PROGRESS}
+          completedProgressStep={completedProgressStep}
+          percent={percent}
+        />
       </ProgressbarWrapper>
       <MainText />
       <UserInputs />

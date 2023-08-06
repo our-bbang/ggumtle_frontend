@@ -37,4 +37,6 @@ const Circle = styled.div<{ size?: string; status?: string }>`
   border-radius: 50%;
 
   z-index: 100;
+
+  transition: background-color 0.1s ease;
 `;

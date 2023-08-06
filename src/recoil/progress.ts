@@ -1,12 +1,13 @@
 import { atom } from 'recoil';
 
-//progressbar의 진행률(%)
-export const progressState = atom<number>({
-  key: 'progressState',
-  default: 0,
+//progress 중 완료된 단계
+export const completedProgress = atom<number>({
+  key: 'completedProgress',
+  default: 1,
 });
 
-export const progressStepState = atom<Array<boolean>>({
-  key: 'progressStepState',
-  default: [true, false],
+//progress의 진행률(%)
+export const progressPercent = atom<number>({
+  key: 'progressPercent',
+  default: 0,
 });

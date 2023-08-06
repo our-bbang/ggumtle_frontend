@@ -9,6 +9,7 @@ import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 export function WriteArea() {
   const navigate = useNavigate();
+
   const updateProgress = useProgress();
 
   const [text, setText] = useState('');
@@ -16,9 +17,9 @@ export function WriteArea() {
   const handleChangeTextBox = (e: FormEvent<HTMLTextAreaElement>) => {
     setText(e.currentTarget.value);
     if (e.currentTarget.value.length === 0) {
-      updateProgress(0);
+      updateProgress('percent', 0);
     } else if (e.currentTarget.value.length > 0) {
-      updateProgress(50);
+      updateProgress('percent', 50);
     }
   };
 
