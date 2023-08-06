@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useInputProgress } from '@hooks/useProgress';
+import { useProgress } from '@hooks/useProgress';
 
 import { BtnBottomContainer } from '@components/common/Buttons/BtnBottomContainer';
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
@@ -10,17 +10,16 @@ import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 export function WriteArea() {
   const navigate = useNavigate();
 
-  //완료된 단계의 수를 인자로 받는 hook
-  const updateProgress = useInputProgress();
+  const updateProgress = useProgress();
 
   const [text, setText] = useState('');
 
   const handleChangeTextBox = (e: FormEvent<HTMLTextAreaElement>) => {
     setText(e.currentTarget.value);
     if (e.currentTarget.value.length === 0) {
-      updateProgress(0);
+      updateProgress('percent', 0);
     } else if (e.currentTarget.value.length > 0) {
-      updateProgress(1);
+      updateProgress('percent', 50);
     }
   };
 

@@ -1,30 +1,28 @@
 import styled from 'styled-components';
-import { IProgress } from '@recoil/progress';
 
 import { ProgressLine } from './ProgressLine';
 import { ProgressCircle } from './ProgressCircle';
 
 interface ProgressbarPropsType {
-  progressState: IProgress;
+  totalProgressStep: number;
+  completedProgressStep: number;
   percent: number;
 }
 
 export const Progressbar = ({
-  progressState,
+  totalProgressStep,
+  completedProgressStep,
   percent,
 }: ProgressbarPropsType) => {
   return (
     <ProgressbarContainer>
       <ProgressLine percent={percent} />
-      <ProgressCircle size="28px" step={1} status={'complete'} />
-      {Array.from({ length: progressState.total - 1 }, (_, idx) => (
+      {Array.from({ length: totalProgressStep }, (_, idx) => (
         <ProgressCircle
           key={idx}
           size="28px"
-          step={idx + 2}
-          status={
-            idx + 1 < (progressState.done as number) ? 'complete' : 'incomplete'
-          }
+          step={idx + 1}
+          status={idx + 1 <= completedProgressStep ? 'complete' : 'incomplete'}
         />
       ))}
     </ProgressbarContainer>
