@@ -9,7 +9,7 @@ export const genderState = atom<Gender.Male | Gender.Female | 0>({
   default: 0,
 });
 
-export const ageState = atom<number>({
+export const ageState = atom<number | string>({
   key: 'ageState',
   default: 20,
 });
@@ -23,8 +23,9 @@ export const isUserInfoCompletedSelector = selector({
   key: 'isUserInfoCompletedSelector',
   get: ({ get }) => {
     const gender = get(genderState);
+    const age = get(ageState);
     const job = get(jobState);
 
-    return gender !== 0 && job !== '';
+    return gender !== 0 && job !== '' && age !== '';
   },
 });
