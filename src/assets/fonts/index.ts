@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-import PretendardRegular from './woff2/Pretendard-Regular.woff2';
-import PretendardBold from './woff2/Pretendard-Bold.woff2';
-import PretendardSemiBold from './woff2/Pretendard-SemiBold.woff2';
-import PretendardMedium from './woff2/Pretendard-Medium.woff2';
-import PretendardExtraBold from './woff2/Pretendard-ExtraBold.woff2';
+import PretendardRegular from './pretendard/Pretendard-Regular.woff2';
+import PretendardBold from './pretendard/Pretendard-Bold.woff2';
+import PretendardSemiBold from './pretendard/Pretendard-SemiBold.woff2';
+import PretendardMedium from './pretendard/Pretendard-Medium.woff2';
+import PretendardExtraBold from './pretendard/Pretendard-ExtraBold.woff2';
 
 export default createGlobalStyle`
 @font-face {
