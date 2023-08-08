@@ -43,7 +43,7 @@ export const UserInfoPage = () => {
   }, [isUserInfoComplete]);
 
   const handleClickBtn = () => {
-    navigate('/');
+    navigate('/mandalart');
   };
 
   return (
