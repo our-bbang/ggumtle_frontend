@@ -1,9 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
+
 import PretendardRegular from './pretendard/Pretendard-Regular.woff2';
 import PretendardBold from './pretendard/Pretendard-Bold.woff2';
 import PretendardSemiBold from './pretendard/Pretendard-SemiBold.woff2';
 import PretendardMedium from './pretendard/Pretendard-Medium.woff2';
 import PretendardExtraBold from './pretendard/Pretendard-ExtraBold.woff2';
+
+import OngothicRegular from './ongothic/KoddiUDOnGothic-Regular.woff';
+import OngothicRegular2 from './ongothic/KoddiUDOnGothic-Regular.woff2';
+import OngothicBold from './ongothic/KoddiUDOnGothic-Bold.woff';
+import OngothicBold2 from './ongothic/KoddiUDOnGothic-Bold.woff2';
+import OngothicExtraBold from './ongothic/KoddiUDOnGothic-ExtraBold.woff';
+import OngothicExtraBold2 from './ongothic/KoddiUDOnGothic-ExtraBold.woff2';
 
 export default createGlobalStyle`
 @font-face {
@@ -43,6 +51,30 @@ export default createGlobalStyle`
     src: local("PretendardExtraBold"),
     url(${PretendardExtraBold}) format('woff2'),
     url("./woff/Pretendard-ExtraBold.woff") format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "OngothicRegular";
+    src: local("OngothicRegular"),
+    url(${OngothicRegular2}) format('woff2'),
+    url(${OngothicRegular}) format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "OngothicBold";
+    src: local("OngothicBold"),
+    url(${OngothicBold2}) format('woff2'),
+    url(${OngothicBold}) format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "OngothicExtraBold";
+    src: local("OngothicExtraBold"),
+    url(${OngothicExtraBold2}) format('woff2'),
+    url(${OngothicExtraBold}) format('woff');
     font-style: normal;
     font-display: swap;
 }
