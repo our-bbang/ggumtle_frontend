@@ -18,7 +18,7 @@ const BtnCustomStyle = css<BtnPropsType>`
     width = '360px',
     height = '52px',
     borderRadius = '8px',
-    fontSize = '16px',
+    fontSize = '18px',
   }) => css`
     width: ${width};
     height: ${height};
@@ -51,7 +51,7 @@ const BtnBase = styled.button<BtnPropsType>`
 
   transition: background-color 0.1s ease;
 
-  font-family: 'PretendardMedium';
+  font-family: 'OngothicRegular';
 
   ${BtnCustomStyle}
   ${BtnStatusStyle}
