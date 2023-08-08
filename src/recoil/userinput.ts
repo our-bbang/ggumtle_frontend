@@ -29,3 +29,13 @@ export const isUserInfoCompletedSelector = selector({
     return gender !== 0 && job !== '' && age !== '';
   },
 });
+
+export const allUserInfo = selector({
+  key: 'allUserInfo',
+  get: ({ get }) => {
+    const gender = get(genderState);
+    const age = get(ageState);
+    const job = get(jobState);
+    return { gender, age, job };
+  },
+});

@@ -1,18 +1,14 @@
-import { ageState, genderState } from '@recoil/userinput';
-import { useEffect } from 'react';
+import { Suspense } from 'react';
 import { useRecoilValue } from 'recoil';
 
-export const MandalartPage = () => {
-  const gender = useRecoilValue(genderState);
-  const age = useRecoilValue(ageState);
+import { mandalartPlan } from '@recoil/plan';
 
-  useEffect(() => {
-    console.log(gender, age);
-  }, []);
+export const MandalartPage = () => {
+  const plan = useRecoilValue(mandalartPlan);
 
   return (
-    <>
+    <Suspense fallback={<div>loading...</div>}>
       <div>계획표</div>
-    </>
+    </Suspense>
   );
 };
