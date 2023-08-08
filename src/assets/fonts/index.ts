@@ -1,10 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7dd955e (chore: assets/fonts 폴더 구조 정리)
 import PretendardRegular from './pretendard/Pretendard-Regular.woff2';
 import PretendardBold from './pretendard/Pretendard-Bold.woff2';
 import PretendardSemiBold from './pretendard/Pretendard-SemiBold.woff2';
 import PretendardMedium from './pretendard/Pretendard-Medium.woff2';
 import PretendardExtraBold from './pretendard/Pretendard-ExtraBold.woff2';
+<<<<<<< HEAD
 
 import OngothicRegular from './ongothic/KoddiUDOnGothic-Regular.woff';
 import OngothicRegular2 from './ongothic/KoddiUDOnGothic-Regular.woff2';
@@ -12,6 +16,8 @@ import OngothicBold from './ongothic/KoddiUDOnGothic-Bold.woff';
 import OngothicBold2 from './ongothic/KoddiUDOnGothic-Bold.woff2';
 import OngothicExtraBold from './ongothic/KoddiUDOnGothic-ExtraBold.woff';
 import OngothicExtraBold2 from './ongothic/KoddiUDOnGothic-ExtraBold.woff2';
+=======
+>>>>>>> 7dd955e (chore: assets/fonts 폴더 구조 정리)
 
 export default createGlobalStyle`
 @font-face {
