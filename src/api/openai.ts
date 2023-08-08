@@ -5,7 +5,7 @@ interface UserInfo {
   age: number | string;
   job: string;
 }
-export const getMadalartPlan = async (goal: string, userinfo: UserInfo) => {
+export const getMandalartPlan = async (goal: string, userinfo: UserInfo) => {
   const { data } = await client.get('/api/madalart', {
     data: {
       goal,

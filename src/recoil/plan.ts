@@ -1,5 +1,5 @@
 import { selector } from 'recoil';
-import { getMadalartPlan } from '@api/openai';
+import { getMandalartPlan } from '@api/openai';
 import { goalState } from './goal';
 import { allUserInfo } from './userinput';
 
@@ -9,6 +9,6 @@ export const mandalartPlan = selector({
     const goal = get(goalState);
     const userinputs = get(allUserInfo);
 
-    return getMadalartPlan(goal, userinputs);
+    return getMandalartPlan(goal, userinputs);
   },
 });
