@@ -1,14 +1,12 @@
 import { Suspense } from 'react';
-import { useRecoilValue } from 'recoil';
 
-import { mandalartPlan } from '@recoil/plan';
+import { Loading } from './Loading';
+import { Plan } from './Plan';
 
 export const MandalartPage = () => {
-  const plan = useRecoilValue(mandalartPlan);
-
   return (
-    <Suspense fallback={<div>loading...</div>}>
-      <div>계획표</div>
+    <Suspense fallback={<Loading />}>
+      <Plan />
     </Suspense>
   );
 };
