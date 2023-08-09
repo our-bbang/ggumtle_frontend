@@ -6,7 +6,7 @@ interface UserInfo {
   job: string;
 }
 export const getMandalartPlan = async (goal: string, userinfo: UserInfo) => {
-  const { data } = await client.get('/api/madalart', {
+  const { data } = await client.get('/plan', {
     data: {
       goal,
       userinfo,

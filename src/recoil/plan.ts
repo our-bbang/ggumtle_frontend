@@ -7,8 +7,8 @@ export const mandalartPlan = selector({
   key: 'mandalartPlan',
   get: async ({ get }) => {
     const goal = get(goalState);
-    const userinputs = get(allUserInfo);
-
-    return getMandalartPlan(goal, userinputs);
+    const userinfo = get(allUserInfo);
+    const response = await getMandalartPlan(goal, userinfo);
+    return response;
   },
 });
