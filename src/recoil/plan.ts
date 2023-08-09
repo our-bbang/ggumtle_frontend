@@ -9,6 +9,7 @@ export const mandalartPlan = selector({
     const goal = get(goalState);
     const userinfo = get(allUserInfo);
     const response = await getMandalartPlan(goal, userinfo);
+    if (response.error) throw response.error;
     return response;
   },
 });
