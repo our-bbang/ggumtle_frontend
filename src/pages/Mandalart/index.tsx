@@ -1,18 +1,19 @@
-import { ageState, genderState } from '@recoil/userinput';
-import { useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValueLoadable } from 'recoil';
+import { mandalartPlan } from '@recoil/plan';
+
+import { Loading } from './Loading';
+import { Plan } from './Plan';
+import { Error } from './Error';
 
 export const MandalartPage = () => {
-  const gender = useRecoilValue(genderState);
-  const age = useRecoilValue(ageState);
+  const planLodable = useRecoilValueLoadable(mandalartPlan);
 
-  useEffect(() => {
-    console.log(gender, age);
-  }, []);
-
-  return (
-    <>
-      <div>계획표</div>
-    </>
-  );
+  switch (planLodable.state) {
+    case 'hasValue':
+      return <Plan content={planLodable.contents} />;
+    case 'loading':
+      return <Loading />;
+    case 'hasError':
+      return <Error />;
+  }
 };
