@@ -27,7 +27,7 @@ function App() {
               <Route path={'/write'} element={<WritePage />} />
               <Route path={'/userinfo'} element={<UserInfoPage />} />
               <Route path={'/mandalart'} element={<MandalartPage />} />
-              <Route path={'/*'} element={<ErrorPage />} />
+              <Route path={'*'} element={<ErrorPage />} />
             </Routes>
           </Layout>
         </BrowserRouter>
