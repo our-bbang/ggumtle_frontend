@@ -3,7 +3,7 @@ import { mandalartPlan } from '@recoil/plan';
 
 import { Loading } from './Loading';
 import { Plan } from './Plan';
-import { Error } from './Error';
+import { ErrorPage } from '@pages/Error';
 
 export const MandalartPage = () => {
   const planLodable = useRecoilValueLoadable(mandalartPlan);
@@ -14,6 +14,6 @@ export const MandalartPage = () => {
     case 'loading':
       return <Loading />;
     case 'hasError':
-      return <Error />;
+      return <ErrorPage />;
   }
 };
