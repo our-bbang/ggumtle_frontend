@@ -11,6 +11,8 @@ import { Layout } from '@components/layout';
 import { LandingPage } from '@pages/Landing';
 import { WritePage } from '@pages/Write';
 import { UserInfoPage } from '@pages/UserInfo';
+import { MandalartPage } from '@pages/Mandalart';
+import { ErrorPage } from '@pages/Error';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
               <Route path={'/'} element={<LandingPage />} />
               <Route path={'/write'} element={<WritePage />} />
               <Route path={'/userinfo'} element={<UserInfoPage />} />
+              <Route path={'/mandalart'} element={<MandalartPage />} />
+              <Route path={'/*'} element={<ErrorPage />} />
             </Routes>
           </Layout>
         </BrowserRouter>

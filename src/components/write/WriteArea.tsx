@@ -1,18 +1,20 @@
 import styled from 'styled-components';
-import { useState, FormEvent } from 'react';
+import { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
 import { useProgress } from '@hooks/useProgress';
 
 import { BtnBottomContainer } from '@components/common/Buttons/BtnBottomContainer';
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
+import { goalState } from '@recoil/goal';
 
 export function WriteArea() {
   const navigate = useNavigate();
 
   const updateProgress = useProgress();
 
-  const [text, setText] = useState('');
+  const [text, setText] = useRecoilState(goalState);
 
   const handleChangeTextBox = (e: FormEvent<HTMLTextAreaElement>) => {
     setText(e.currentTarget.value);
