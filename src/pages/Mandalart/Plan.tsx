@@ -1,4 +1,5 @@
 import { PlanLayout } from '@components/plan/PlanLayout';
+import { useEffect } from 'react';
 
 interface PlanProps {
   content: {
@@ -7,6 +8,9 @@ interface PlanProps {
   };
 }
 export const Plan = ({ content }: PlanProps) => {
+  useEffect(() => {
+    console.log(content);
+  }, []);
   return (
     <div>
       <PlanLayout />
