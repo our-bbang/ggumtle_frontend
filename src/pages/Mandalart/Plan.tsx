@@ -1,3 +1,5 @@
+import { PlanLayout } from '@components/plan/PlanLayout';
+
 interface PlanProps {
   content: {
     id: number;
@@ -5,5 +7,9 @@ interface PlanProps {
   };
 }
 export const Plan = ({ content }: PlanProps) => {
-  return <div>계획표 {content.plan}</div>;
+  return (
+    <div>
+      <PlanLayout />
+    </div>
+  );
 };
