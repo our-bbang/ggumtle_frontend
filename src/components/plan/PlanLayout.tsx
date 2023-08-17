@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { TopImgContent } from './TopImgContent';
 import { PlanContent } from './PlanContent';
 import { BottomContent } from './BottomContent';
 
@@ -10,6 +11,7 @@ export const PlanLayout = () => {
       <BottomBackground />
       <PlanContent />
       <BottomContent />
+      <TopImgContent />
     </LayoutContainer>
   );
 };
