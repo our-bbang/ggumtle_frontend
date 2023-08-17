@@ -9,6 +9,7 @@ export interface BtnPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
   height?: string;
   borderRadius?: string;
   fontSize?: string;
+  fontFamily?: string;
   handleClick?: () => void;
   children: ReactNode;
 }
@@ -19,11 +20,13 @@ const BtnCustomStyle = css<BtnPropsType>`
     height = '52px',
     borderRadius = '8px',
     fontSize = '18px',
+    fontFamily = 'OngothicRegular',
   }) => css`
     width: ${width};
     height: ${height};
     border-radius: ${borderRadius};
     font-size: ${fontSize};
+    font-family: ${fontFamily};
   `};
 `;
 
@@ -50,8 +53,6 @@ const BtnBase = styled.button<BtnPropsType>`
   user-select: none;
 
   transition: background-color 0.1s ease;
-
-  font-family: 'OngothicRegular';
 
   ${BtnCustomStyle}
   ${BtnStatusStyle}
