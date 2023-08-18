@@ -29,8 +29,6 @@ export const ErrorPage = () => {
 };
 
 const ErrorPageContainer = styled.div`
-  border: 1px solid blue;
-
   display: flex;
   flex-direction: column;
   align-items: center;
