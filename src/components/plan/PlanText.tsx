@@ -9,7 +9,7 @@ export const PlanText = () => {
   return (
     <PlanTextContainer>
       <GoalContainer>
-        <GoalText>{'목표'}</GoalText>
+        <GoalText>{goal}</GoalText>
       </GoalContainer>
       <MainKeyword_TopLeft>
         <MainKeywordText>메인 키워드1</MainKeywordText>
@@ -55,6 +55,12 @@ const GoalContainer = styled.div`
 
 const GoalText = styled.div`
   text-align: center;
+
+  font-family: 'PretendardMedium';
+  font-size: 14px;
+  line-height: 15px;
+  color: ${({ theme }) => theme.colors.gray_900};
+  word-wrap: keep-all;
 `;
 
 const MainKeywordContainer = styled.div`
@@ -92,4 +98,10 @@ const MainKeyword_BottomRight = styled(MainKeywordContainer)`
 
 const MainKeywordText = styled.div`
   text-align: center;
+
+  font-family: 'PretendardMedium';
+  font-size: 12px;
+  line-height: 14px;
+  color: ${({ theme }) => theme.colors.gray_900};
+  word-wrap: keep-all;
 `;
