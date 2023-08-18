@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { PlanText } from './PlanText';
+
 export const PlanContent = () => {
   return (
     <PlanContentContainer>
@@ -7,7 +9,7 @@ export const PlanContent = () => {
         src={import.meta.env.BASE_URL + './image/plan_background_img.svg'}
         alt="tree"
       />
-      <PlanText>나의 목표</PlanText>
+      <PlanText />
     </PlanContentContainer>
   );
 };
@@ -20,10 +22,3 @@ const PlanContentContainer = styled.div`
 `;
 
 const BackgroundImg = styled.img``;
-
-const PlanText = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
