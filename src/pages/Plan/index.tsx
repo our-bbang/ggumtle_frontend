@@ -5,7 +5,7 @@ import { Loading } from './Loading';
 import { Plan } from './Plan';
 import { ErrorPage } from '@pages/Error';
 
-export const MandalartPage = () => {
+export const PlanPage = () => {
   const planLodable = useRecoilValueLoadable(mandalartPlan);
 
   switch (planLodable.state) {
