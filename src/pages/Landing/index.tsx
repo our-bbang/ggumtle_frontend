@@ -5,6 +5,8 @@ import { MainLogo } from '@components/landing/MainLogo';
 import { BtnBottomContainer } from '@components/common/Buttons/BtnBottomContainer';
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
+import { ResetAtoms } from '@components/landing/ResetAtoms';
+
 export const LandingPage = () => {
   const navigate = useNavigate();
 
@@ -14,6 +16,7 @@ export const LandingPage = () => {
 
   return (
     <LandingPageContainer>
+      <ResetAtoms />
       <MainLogo />
       <Box>추가 설명</Box>
       <BtnBottomContainer>
