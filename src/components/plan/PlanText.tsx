@@ -1,26 +1,43 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { useRecoilValue } from 'recoil';
 import { goalState } from '@recoil/goal';
 
+import { Modal as DetailKeywordModal } from '@components/common/Modal';
+
 export const PlanText = () => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+
   const goal = useRecoilValue(goalState);
+
+  const handleClickMainKeyword = (key: number) => {
+    setIsOpenModal(true);
+    setModalContent(`메인 키워드 ${key}에 대한 세부 키워드`);
+  };
 
   return (
     <PlanTextContainer>
+      <DetailKeywordModal
+        isOpenModal={isOpenModal}
+        setIsOpenModal={setIsOpenModal}
+      >
+        <div>{modalContent}</div>
+      </DetailKeywordModal>
       <GoalContainer>
         <GoalText>{goal}</GoalText>
       </GoalContainer>
-      <MainKeyword_TopLeft>
+      <MainKeyword_TopLeft onClick={() => handleClickMainKeyword(1)}>
         <MainKeywordText>메인 키워드1</MainKeywordText>
       </MainKeyword_TopLeft>
-      <MainKeyword_TopRight>
+      <MainKeyword_TopRight onClick={() => handleClickMainKeyword(2)}>
         <MainKeywordText>메인 키워드2</MainKeywordText>
       </MainKeyword_TopRight>
-      <MainKeyword_BottomLeft>
+      <MainKeyword_BottomLeft onClick={() => handleClickMainKeyword(3)}>
         <MainKeywordText>메인 키워드3</MainKeywordText>
       </MainKeyword_BottomLeft>
-      <MainKeyword_BottomRight>
+      <MainKeyword_BottomRight onClick={() => handleClickMainKeyword(4)}>
         <MainKeywordText>메인 키워드4</MainKeywordText>
       </MainKeyword_BottomRight>
     </PlanTextContainer>
