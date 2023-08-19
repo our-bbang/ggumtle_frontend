@@ -28,7 +28,6 @@ export const PlanText = () => {
 };
 
 const PlanTextContainer = styled.div`
-  border: 1px solid blue;
   position: absolute;
 
   width: 100%;
@@ -74,6 +73,10 @@ const MainKeywordContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const MainKeyword_TopLeft = styled(MainKeywordContainer)`
