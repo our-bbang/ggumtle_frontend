@@ -1,4 +1,5 @@
 import { atom, selector } from 'recoil';
+import { persistAtom } from './persist';
 
 export enum Gender {
   Male = 1,
@@ -7,16 +8,19 @@ export enum Gender {
 export const genderState = atom<Gender.Male | Gender.Female | 0>({
   key: 'genderState',
   default: 0,
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const ageState = atom<number | string>({
   key: 'ageState',
   default: 20,
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const jobState = atom<string>({
   key: 'jobState',
   default: '',
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const isUserInfoCompletedSelector = selector({
