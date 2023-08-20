@@ -2,7 +2,7 @@ name: storybook
 
 on:
   push:
-    branches: ['main', 'deploy']
+    branches: ['gh-pages']
 
 jobs:
   deploy:
