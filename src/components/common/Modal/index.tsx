@@ -8,12 +8,12 @@ interface ModalPropsType {
   width?: string;
   height?: string;
   padding?: string;
-  isModalOpen: boolean;
+  isOpenModal: boolean;
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   children?: ReactNode;
 }
 export const Modal = ({
-  isModalOpen,
+  isOpenModal,
   setIsOpenModal,
   children,
   ...props
@@ -24,7 +24,7 @@ export const Modal = ({
 
   return (
     <>
-      {isModalOpen &&
+      {isOpenModal &&
         createPortal(
           <ModalBackdrop onClick={handleClickBackdrop}>
             <ModalView {...props} onClick={(e: any) => e.stopPropagation()}>

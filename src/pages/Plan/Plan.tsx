@@ -11,9 +11,5 @@ export const Plan = ({ content }: PlanProps) => {
   useEffect(() => {
     console.log(content);
   }, []);
-  return (
-    <div>
-      <PlanLayout />
-    </div>
-  );
+  return <PlanLayout />;
 };
