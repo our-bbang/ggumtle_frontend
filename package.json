@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_ff7802c91cd303e"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
@@ -39,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.2.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
+    "chromatic": "^6.22.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
@@ -51,5 +53,7 @@
     "storybook": "^7.3.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "ggumtle_frontend@0.0.0"
 }
