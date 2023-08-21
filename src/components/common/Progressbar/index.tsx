@@ -4,8 +4,17 @@ import { ProgressLine } from './ProgressLine';
 import { ProgressCircle } from './ProgressCircle';
 
 interface ProgressbarPropsType {
+  /**
+   * Total number of progress steps
+   */
   totalProgressStep: number;
+  /**
+   * Number of completed progress steps
+   */
   completedProgressStep: number;
+  /**
+   * Percentage of completed progress
+   */
   percent: number;
 }
 
