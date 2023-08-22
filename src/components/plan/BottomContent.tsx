@@ -1,16 +1,19 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import { BottomBtn as DownloadImgBtn } from '@components/common/Buttons/BottomBtn';
 
 export const BottomContent = () => {
+  const navigate = useNavigate();
+
   const handleClickDownloadBtn = () => {
-    console.log('이미지 저장');
+    navigate('/planimg');
   };
 
   return (
     <BottomContentContainer>
       <DownloadImgBtn
-        width="340px"
+        width="280px"
         borderRadius="30px"
         fontFamily="Pretendard"
         onClick={handleClickDownloadBtn}
@@ -19,7 +22,7 @@ export const BottomContent = () => {
           src={import.meta.env.BASE_URL + './icon/camera_icon.svg'}
           alt="카메라"
         />
-        만다라트 계획표 이미지로 저장
+        만다라트 계획표 보기
       </DownloadImgBtn>
     </BottomContentContainer>
   );
