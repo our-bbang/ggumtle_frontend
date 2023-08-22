@@ -13,6 +13,7 @@ import { WritePage } from '@pages/Write';
 import { UserInfoPage } from '@pages/UserInfo';
 import { PlanPage } from '@pages/Plan';
 import { ErrorPage } from '@pages/Error';
+import { DownloadImgPage } from '@pages/DownloadImg';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path={'/write'} element={<WritePage />} />
               <Route path={'/userinfo'} element={<UserInfoPage />} />
               <Route path={'/plan'} element={<PlanPage />} />
+              <Route path={'/planimg'} element={<DownloadImgPage />} />
               <Route path={'*'} element={<ErrorPage />} />
             </Routes>
           </Layout>
