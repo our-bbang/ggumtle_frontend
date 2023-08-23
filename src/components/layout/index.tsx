@@ -24,6 +24,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <LayoutContainer>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <Version>1.0.0</Version>
     </LayoutContainer>
   );
 };
@@ -45,4 +46,8 @@ const LayoutContainer = styled.div`
   }
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */
+`;
+
+const Version = styled.div`
+  display: none;
 `;
