@@ -48,8 +48,8 @@ export const MiddleTable = ({
 
 const StyledMiddleTable = styled.div`
   display: table-cell;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border: 1px solid ${({ theme }) => theme.colors.gray_600};
 `;
 
@@ -71,7 +71,7 @@ const StyledMiddleTableCell = styled.div<{ order?: string }>`
     font-family: 'PretendardMedium';
     font-size: 12px;
   }
-  font-size: 11px;
+  font-size: 10px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -147,15 +147,16 @@ export const PlanImg = ({ refLink }: PropsType) => {
 };
 
 const Container = styled.div`
-  width: 380px;
-  height: 380px;
+  width: 390px;
+  height: 390px;
+  margin-bottom: 50px;
 `;
 
 export const StyledBigTable = styled.div`
-  margin: 10px;
+  //margin: 10px;
   background-color: white;
-  width: 360px;
-  height: 360px;
+  width: 390px;
+  height: 390px;
 `;
 
 export const StyledBigTableRow = styled.div`
@@ -165,8 +166,8 @@ export const StyledBigTableRow = styled.div`
 `;
 
 export const CenterTable = styled.div`
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   background-color: #e3fbe4;
   border: 1px solid ${({ theme }) => theme.colors.gray_600};
 
