@@ -72,6 +72,7 @@ const StyledInput = styled.input<{ borderRadius?: string }>`
   }
 
   font-family: 'PretendardMedium';
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.gray_900};
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray_500};

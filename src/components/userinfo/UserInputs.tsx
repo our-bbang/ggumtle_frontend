@@ -42,7 +42,7 @@ export const UserInputs = () => {
           value={job}
           setValue={setJob}
           maxLength={20}
-          placeholder="ex) 대학교 4학년 / 프론트엔드 개발자"
+          placeholder="ex) 대학교 4학년 / 백엔드 개발자"
         />
       </InputWrapper>
     </UserInputsContainer>

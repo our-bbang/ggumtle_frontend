@@ -6,9 +6,15 @@ import { toPng } from 'html-to-image';
 import { PlanImg } from '@components/planimg';
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
+import { useSetRecoilState } from 'recoil';
+import { completedProgress, progressPercent } from '@recoil/progress';
+
 export const DownloadImgPage = () => {
   const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
+
+  const setCompletedProgress = useSetRecoilState(completedProgress);
+  const setProgresssPercent = useSetRecoilState(progressPercent);
 
   const handleClickDownloadBtn = useCallback(() => {
     if (ref.current === null) {
@@ -29,6 +35,8 @@ export const DownloadImgPage = () => {
 
   const handleClickGoHomeBtn = () => {
     navigate('/');
+    setCompletedProgress(1);
+    setProgresssPercent(0);
   };
 
   return (
