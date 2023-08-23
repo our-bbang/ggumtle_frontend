@@ -4,10 +4,18 @@ export const DetailModalContent = ({ modalContent }: any) => {
   return (
     <Container>
       <MainKeyword>{modalContent?.Value}</MainKeyword>
-      <DetailKeyword>{`- ${modalContent?.Details?.Detail1}`}</DetailKeyword>
-      <DetailKeyword>{`- ${modalContent?.Details?.Detail2}`}</DetailKeyword>
-      <DetailKeyword>{`- ${modalContent?.Details?.Detail3}`}</DetailKeyword>
-      <DetailKeyword>{`- ${modalContent?.Details?.Detail4}`}</DetailKeyword>
+      <DetailKeyword>
+        <div>{`- ${modalContent?.Details?.Detail1}`}</div>
+      </DetailKeyword>
+      <DetailKeyword>
+        <div>{`- ${modalContent?.Details?.Detail2}`}</div>
+      </DetailKeyword>
+      <DetailKeyword>
+        <div>{`- ${modalContent?.Details?.Detail3}`}</div>
+      </DetailKeyword>
+      <DetailKeyword>
+        <div>{`- ${modalContent?.Details?.Detail4}`}</div>
+      </DetailKeyword>
     </Container>
   );
 };
@@ -34,7 +42,9 @@ const DetailKeyword = styled.div`
   height: 40px;
 
   text-align: center;
-  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-family: 'Pretendard';
   font-size: 14px;

@@ -76,6 +76,7 @@ const StyledMiddleTableCell = styled.div<{ order?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 
   ${({ order = '' }) => {
     if (order === '1')
