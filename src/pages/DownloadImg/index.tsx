@@ -15,7 +15,7 @@ export const DownloadImgPage = () => {
       return;
     }
 
-    toPng(ref.current, { cacheBust: true })
+    toPng(ref.current, { cacheBust: true, pixelRatio: 2 })
       .then((dataUrl) => {
         const link = document.createElement('a');
         link.download = 'my-mandalart-plan.png';

@@ -5,6 +5,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { GlobalStyle } from '@styles/global-style';
 import GlobalFonts from '@assets/fonts';
 
+import { Background } from '@components/common/Background';
 import { Layout } from '@components/layout';
 
 //pages
@@ -22,6 +23,7 @@ function App() {
         <BrowserRouter>
           <GlobalStyle />
           <GlobalFonts />
+          <Background />
           <Layout>
             <Routes>
               <Route path={'/'} element={<LandingPage />} />
