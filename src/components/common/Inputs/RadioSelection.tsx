@@ -81,6 +81,7 @@ const OptionBtn = styled.button<{ borderRadius?: string }>`
   `};
 
   font-family: 'PretendardMedium';
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.gray_800};
 
   &:hover {
