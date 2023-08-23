@@ -28,6 +28,7 @@ import{s as a,n as u,j as g,a as n}from"./styled-components.browser.esm-54edbece
   `};
 
   font-family: 'PretendardMedium';
+  font-size: 14px;
   color: ${({theme:e})=>e.colors.gray_800};
 
   &:hover {
@@ -48,4 +49,4 @@ import{s as a,n as u,j as g,a as n}from"./styled-components.browser.esm-54edbece
     selectedOption: 1
   }
 }`,...(p=(c=o.parameters)==null?void 0:c.docs)==null?void 0:p.source}}};const O=["Default"];export{o as Default,O as __namedExportsOrder,_ as default};
-//# sourceMappingURL=RadioSelection.stories-7cc09278.js.map
+//# sourceMappingURL=RadioSelection.stories-883ef72e.js.map

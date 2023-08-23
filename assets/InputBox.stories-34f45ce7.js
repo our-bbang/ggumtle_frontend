@@ -25,6 +25,7 @@ import{s as i,n as p,a as l}from"./styled-components.browser.esm-54edbece.js";im
   }
 
   font-family: 'PretendardMedium';
+  font-size: 14px;
   color: ${({theme:e})=>e.colors.gray_900};
   &::placeholder {
     color: ${({theme:e})=>e.colors.gray_500};
@@ -38,4 +39,4 @@ import{s as i,n as p,a as l}from"./styled-components.browser.esm-54edbece.js";im
     type: 'text'
   }
 }`,...(d=(u=a.parameters)==null?void 0:u.docs)==null?void 0:d.source}}};const q=["Default"];export{a as Default,q as __namedExportsOrder,$ as default};
-//# sourceMappingURL=InputBox.stories-4b9ec39f.js.map
+//# sourceMappingURL=InputBox.stories-34f45ce7.js.map
