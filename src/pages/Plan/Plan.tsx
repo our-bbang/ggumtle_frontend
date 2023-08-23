@@ -1,15 +1,18 @@
+import { useSetRecoilState } from 'recoil';
+import { planresult, BucketList } from '@recoil/planresult';
+
 import { PlanLayout } from '@components/plan/PlanLayout';
 import { useEffect } from 'react';
 
-interface PlanProps {
-  content: {
-    id: number;
-    plan: string;
-  };
+interface BucketListData {
+  BucketList: BucketList;
 }
-export const Plan = ({ content }: PlanProps) => {
+
+export const Plan = ({ BucketList }: BucketListData) => {
+  const setPlanresult = useSetRecoilState(planresult);
+
   useEffect(() => {
-    console.log(content);
+    setPlanresult(BucketList);
   }, []);
   return <PlanLayout />;
 };

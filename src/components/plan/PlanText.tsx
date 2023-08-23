@@ -2,43 +2,64 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { useRecoilValue } from 'recoil';
+import { planresult, BucketListItem } from '@recoil/planresult';
 import { goalState } from '@recoil/goal';
 
 import { Modal as DetailKeywordModal } from '@components/common/Modal';
+import { DetailModalContent } from './DetailModalContent';
 
 export const PlanText = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [modalContent, setModalContent] = useState('');
+  const [modalContent, setModalContent] = useState<BucketListItem>();
 
   const goal = useRecoilValue(goalState);
+  const plan = useRecoilValue(planresult);
 
   const handleClickMainKeyword = (key: number) => {
     setIsOpenModal(true);
-    setModalContent(`메인 키워드 ${key}에 대한 세부 키워드`);
+    if (key === 1) {
+      setModalContent(plan?.BucketList?.MainKeyword1);
+    } else if (key === 2) {
+      setModalContent(plan?.BucketList?.MainKeyword2);
+    } else if (key === 3) {
+      setModalContent(plan?.BucketList?.MainKeyword3);
+    } else if (key === 4) {
+      setModalContent(plan?.BucketList?.MainKeyword4);
+    }
   };
 
   return (
     <PlanTextContainer>
       <DetailKeywordModal
+        width="280px"
+        height="280px"
         isOpenModal={isOpenModal}
         setIsOpenModal={setIsOpenModal}
       >
-        <div>{modalContent}</div>
+        <DetailModalContent modalContent={modalContent} />
       </DetailKeywordModal>
       <GoalContainer>
         <GoalText>{goal}</GoalText>
       </GoalContainer>
       <MainKeyword_TopLeft onClick={() => handleClickMainKeyword(1)}>
-        <MainKeywordText>메인 키워드1</MainKeywordText>
+        <MainKeywordText>
+          {plan?.BucketList?.MainKeyword1?.Value}
+        </MainKeywordText>
       </MainKeyword_TopLeft>
       <MainKeyword_TopRight onClick={() => handleClickMainKeyword(2)}>
-        <MainKeywordText>메인 키워드2</MainKeywordText>
+        <MainKeywordText>
+          {plan?.BucketList?.MainKeyword2?.Value}
+        </MainKeywordText>
       </MainKeyword_TopRight>
       <MainKeyword_BottomLeft onClick={() => handleClickMainKeyword(3)}>
-        <MainKeywordText>메인 키워드3</MainKeywordText>
+        <MainKeywordText>
+          {plan?.BucketList?.MainKeyword3?.Value}
+        </MainKeywordText>
       </MainKeyword_BottomLeft>
       <MainKeyword_BottomRight onClick={() => handleClickMainKeyword(4)}>
-        <MainKeywordText>메인 키워드4</MainKeywordText>
+        <MainKeywordText>
+          {plan?.BucketList?.MainKeyword4?.Value}
+        </MainKeywordText>
       </MainKeyword_BottomRight>
     </PlanTextContainer>
   );

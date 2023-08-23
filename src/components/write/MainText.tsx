@@ -13,8 +13,10 @@ export const MainText = () => {
       </Text>
       <Text className="middle">구체적으로 입력할 수록 좋아요.</Text>
       <Text className="small">{`ex)`}</Text>
-      <Text className="small">50살에 대통령이 된다.</Text>
-      <Text className="small">30살에 뉴욕 여행을 간다.</Text>
+      <Text className="small">
+        3년 이내에 전문적인 프론트엔드 개발자가 된다.
+      </Text>
+      <Text className="small">혼자서 일주일간 뉴욕 여행을 한다.</Text>
     </MainTextContainer>
   );
 };
@@ -41,6 +43,7 @@ const Text = styled.div`
     color: ${({ theme }) => theme.colors.gray_900};
 
     margin: 10px 0;
+    margin-bottom: 24px;
   }
 
   &.middle {

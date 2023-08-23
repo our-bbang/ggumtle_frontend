@@ -10,7 +10,7 @@ export const PlanPage = () => {
 
   switch (planLodable.state) {
     case 'hasValue':
-      return <Plan content={planLodable.contents} />;
+      return <Plan BucketList={planLodable.contents} />;
     case 'loading':
       return <Loading />;
     case 'hasError':
