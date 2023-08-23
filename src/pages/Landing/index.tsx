@@ -7,8 +7,6 @@ import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 import { ResetAtoms } from '@components/landing/ResetAtoms';
 
-import { DetailModalContent } from '@components/plan/DetailModalContent';
-
 export const LandingPage = () => {
   const navigate = useNavigate();
 
@@ -20,9 +18,6 @@ export const LandingPage = () => {
     <LandingPageContainer>
       <ResetAtoms />
       <MainLogo />
-      <DetailModalContent />
-      <Box>추가 설명</Box>
-
       <BtnBottomContainer>
         <StartBtn onClick={handleClickStartBtn}>시작하기</StartBtn>
       </BtnBottomContainer>
@@ -34,10 +29,10 @@ const LandingPageContainer = styled.div`
   position: relative;
 `;
 
-const Box = styled.div`
-  width: 100%;
-  height: 1000px;
-  background-color: lightgray;
-`;
+// const Box = styled.div`
+//   width: 100%;
+//   height: 1000px;
+//   background-color: lightgray;
+// `;
 
 const StartBtn = styled(BottomBtn)``;

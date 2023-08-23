@@ -36,12 +36,12 @@ export function WriteArea() {
     <WriteAreaContainer onSubmit={handleSubmit}>
       <TextBox
         placeholder="내가 이루고 싶은 꿈은?"
-        maxLength={100}
+        maxLength={50}
         value={text}
         onChange={handleChangeTextBox}
         className={text.length > 0 ? 'green' : ''}
       />
-      <MaxLengthText>최대 100자</MaxLengthText>
+      <MaxLengthText>최대 50자</MaxLengthText>
       <BtnBottomContainer>
         <BottomBtn
           type="submit"
@@ -68,7 +68,7 @@ const WriteAreaContainer = styled.form`
 
 const TextBox = styled.textarea`
   width: 360px;
-  height: 120px;
+  height: 80px;
   padding: 12px;
 
   outline: none;
