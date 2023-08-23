@@ -8,7 +8,9 @@ export const MainLogo = () => {
           src={import.meta.env.BASE_URL + './image/landing_main_logo.svg'}
           alt="꿈틀 로고"
         />
-        <MainText>목표 달성을 위한 AI 기반 맞춤형 계획 도우미</MainText>
+        <MainText>
+          목표 달성을 위한 <span>AI</span> 기반 맞춤형 <span>계획 도우미</span>
+        </MainText>
       </Content>
     </MainLogoContainer>
   );
@@ -42,4 +44,8 @@ const MainText = styled.div`
   font-family: 'PretendardSemiBold';
   color: ${({ theme }) => theme.colors.gray_900};
   font-size: 16px;
+
+  span {
+    color: ${({ theme }) => theme.colors.green};
+  }
 `;
