@@ -1,6 +1,6 @@
 ## Issue
 
-Resolves
+Resolves #
 
 ## 작업 내용
 
