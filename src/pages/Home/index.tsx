@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { HomeHeader } from '@components/home/HomeHeader';
 import { PlanBox } from '@components/home/PlanBox';
+import { AddPlanBtn } from '@components/home/AddPlanBtn';
 
 const data = [
   {
@@ -46,6 +47,7 @@ export const HomePage = () => {
           />
         );
       })}
+      <AddPlanBtn />
     </HomePageContainer>
   );
 };
