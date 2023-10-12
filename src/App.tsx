@@ -10,6 +10,7 @@ import { Layout } from '@components/layout';
 
 //pages
 import { LandingPage } from '@pages/Landing';
+import { HomePage } from '@pages/Home';
 import { WritePage } from '@pages/Write';
 import { UserInfoPage } from '@pages/UserInfo';
 import { PlanPage } from '@pages/Plan';
@@ -27,6 +28,7 @@ function App() {
           <Layout>
             <Routes>
               <Route path={'/'} element={<LandingPage />} />
+              <Route path={'/home'} element={<HomePage />} />
               <Route path={'/write'} element={<WritePage />} />
               <Route path={'/userinfo'} element={<UserInfoPage />} />
               <Route path={'/plan'} element={<PlanPage />} />
