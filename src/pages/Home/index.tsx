@@ -44,6 +44,7 @@ export const HomePage = () => {
             startdate={el.startdate}
             percent={el.percent}
             color={idx % 4}
+            index={idx}
           />
         );
       })}

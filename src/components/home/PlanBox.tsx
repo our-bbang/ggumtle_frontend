@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { ProgressCircle } from './ProgressCircle';
 
 interface PlanBoxProps {
   mainplan: string;
@@ -6,6 +7,7 @@ interface PlanBoxProps {
   startdate: string;
   percent: number;
   color: number;
+  index: number;
 }
 
 export const PlanBox = ({ ...props }: PlanBoxProps) => {
@@ -37,13 +39,14 @@ export const PlanBox = ({ ...props }: PlanBoxProps) => {
           {props.subplans[3]}
         </SubPlans>
       </InfoContainer>
-      <PercentContainer>{props.percent}</PercentContainer>
+      <ProgressCircle percent={props.percent} index={props.index} />
     </PlanBoxContainer>
   );
 };
 
 const PlanBoxContainer = styled.div<{ color: string }>`
   width: 85%;
+  min-width: 320px;
   height: 86px;
   border-radius: 15px;
   ${({ color }) => css`
@@ -53,6 +56,8 @@ const PlanBoxContainer = styled.div<{ color: string }>`
   display: flex;
   padding: 0 18px;
   margin: 8px 0;
+
+  position: relative;
 `;
 
 const InfoContainer = styled.div`
@@ -81,7 +86,7 @@ const StartDateText = styled.div<{ color: string }>`
 `;
 
 const SubPlans = styled.div`
-  font-family: 'PretendardMedium';
+  font-family: 'Pretendard';
   font-size: 10px;
   color: white;
 
@@ -91,10 +96,4 @@ const SubPlans = styled.div`
   svg {
     margin-right: 4px;
   }
-`;
-
-const PercentContainer = styled.div`
-  width: 60px;
-  height: 60px;
-  background-color: aliceblue;
 `;
