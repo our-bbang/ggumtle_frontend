@@ -15,6 +15,13 @@ const colors = {
   gray_800: '#3E404C',
   gray_900: '#2B2D36',
   gray_950: '#252730',
+  purple: '#9D9BFF',
+  purple_dark: '#6D6AFF',
+  orange: '#FFC066',
+  orange_dark: '#FF9600',
+  pink: '#FF7EBC',
+  pink_dark: '#FF3898',
+  green_dark_2: '#00AD7C',
 };
 
 export type ColorTypes = typeof colors;

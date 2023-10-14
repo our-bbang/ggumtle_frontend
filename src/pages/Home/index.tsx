@@ -1,7 +1,63 @@
+import styled from 'styled-components';
+
+import { HomeHeader } from '@components/home/HomeHeader';
+import { PlanBox } from '@components/home/PlanBox';
+import { AddPlanBtn } from '@components/home/AddPlanBtn';
+
+const data = [
+  {
+    mainplan: '개발자로 취업하기',
+    subplans: ['자기계발', '네트워킹', '프로젝트', '학습'],
+    startdate: '2023.05.12',
+    percent: 50,
+  },
+  {
+    mainplan: '개발자로 취업하기',
+    subplans: ['자기계발', '네트워킹', '프로젝트', '학습'],
+    startdate: '2023.05.12',
+    percent: 50,
+  },
+  {
+    mainplan: '개발자로 취업하기',
+    subplans: ['자기계발', '네트워킹', '프로젝트', '학습'],
+    startdate: '2023.05.12',
+    percent: 50,
+  },
+  {
+    mainplan: '개발자로 취업하기',
+    subplans: ['자기계발', '네트워킹', '프로젝트', '학습'],
+    startdate: '2023.05.12',
+    percent: 50,
+  },
+];
+
 export const HomePage = () => {
   return (
-    <>
-      <div>홈</div>
-    </>
+    <HomePageContainer>
+      <HomeHeader />
+      {data.map((el, idx) => {
+        return (
+          <PlanBox
+            key={idx}
+            mainplan={el.mainplan}
+            subplans={el.subplans}
+            startdate={el.startdate}
+            percent={el.percent}
+            color={idx % 4}
+            index={idx}
+          />
+        );
+      })}
+      <AddPlanBtn />
+    </HomePageContainer>
   );
 };
+
+const HomePageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  padding-top: 100px;
+`;
