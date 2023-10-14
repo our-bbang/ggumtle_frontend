@@ -61,7 +61,8 @@ const PlanBoxContainer = styled.div<{ color: string }>`
 `;
 
 const InfoContainer = styled.div`
-  flex: 1;
+  //flex: 1;
+  width: calc(100% - 66px);
 
   display: flex;
   flex-direction: column;
@@ -70,7 +71,7 @@ const InfoContainer = styled.div`
 
 const MainPlanText = styled.div`
   font-family: 'PretendardMedium';
-  font-size: 16px;
+  font-size: 15px;
   color: white;
 
   margin-bottom: 8px;
