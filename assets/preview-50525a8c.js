@@ -1,4 +1,4 @@
-import{b as e,j as t,X as a,a as o}from"./styled-components.browser.esm-54edbece.js";import"./index-e03f90b5.js";import"./_commonjsHelpers-725317a4.js";import"./tslib.es6-17d83084.js";const f=e`
+import{b as r,j as t,X as a,a as o}from"./styled-components.browser.esm-54edbece.js";import"./index-e03f90b5.js";import"./_commonjsHelpers-725317a4.js";import"./tslib.es6-17d83084.js";const f=r`
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -58,7 +58,7 @@ table {
 a{
   text-decoration: none
 }
-`,n=""+new URL("Pretendard-Regular-98f99c33.woff2",import.meta.url).href,l=""+new URL("Pretendard-Bold-c8dc160f.woff2",import.meta.url).href,d=""+new URL("Pretendard-SemiBold-0b651bef.woff2",import.meta.url).href,i=""+new URL("Pretendard-Medium-c0f4afc6.woff2",import.meta.url).href,s=""+new URL("Pretendard-ExtraBold-bff8ca72.woff2",import.meta.url).href,c=""+new URL("KoddiUDOnGothic-Regular-80d4f227.woff",import.meta.url).href,m=""+new URL("KoddiUDOnGothic-Regular-2b0685b8.woff2",import.meta.url).href,u=""+new URL("KoddiUDOnGothic-Bold-c36bee1d.woff",import.meta.url).href,w=""+new URL("KoddiUDOnGothic-Bold-1628d7fb.woff2",import.meta.url).href,p=""+new URL("KoddiUDOnGothic-ExtraBold-61be88a9.woff",import.meta.url).href,g=""+new URL("KoddiUDOnGothic-ExtraBold-961567a9.woff2",import.meta.url).href,h=e`
+`,n=""+new URL("Pretendard-Regular-98f99c33.woff2",import.meta.url).href,l=""+new URL("Pretendard-Bold-c8dc160f.woff2",import.meta.url).href,d=""+new URL("Pretendard-SemiBold-0b651bef.woff2",import.meta.url).href,i=""+new URL("Pretendard-Medium-c0f4afc6.woff2",import.meta.url).href,s=""+new URL("Pretendard-ExtraBold-bff8ca72.woff2",import.meta.url).href,c=""+new URL("KoddiUDOnGothic-Regular-80d4f227.woff",import.meta.url).href,m=""+new URL("KoddiUDOnGothic-Regular-2b0685b8.woff2",import.meta.url).href,u=""+new URL("KoddiUDOnGothic-Bold-c36bee1d.woff",import.meta.url).href,p=""+new URL("KoddiUDOnGothic-Bold-1628d7fb.woff2",import.meta.url).href,w=""+new URL("KoddiUDOnGothic-ExtraBold-61be88a9.woff",import.meta.url).href,g=""+new URL("KoddiUDOnGothic-ExtraBold-961567a9.woff2",import.meta.url).href,h=r`
 @font-face {
     font-family: "Pretendard";
     src: local("PretendardRegular"),
@@ -110,7 +110,7 @@ a{
 @font-face {
     font-family: "OngothicBold";
     src: local("OngothicBold"),
-    url(${w}) format('woff2'),
+    url(${p}) format('woff2'),
     url(${u}) format('woff');
     font-style: normal;
     font-display: swap;
@@ -119,9 +119,9 @@ a{
     font-family: "OngothicExtraBold";
     src: local("OngothicExtraBold"),
     url(${g}) format('woff2'),
-    url(${p}) format('woff');
+    url(${w}) format('woff');
     font-style: normal;
     font-display: swap;
 }
-`,y={green:"#4ed99c",green_dark:"#51C894",white:"#ffffff",gray_50:"#F7F7FA",gray_100:"#F0F0F5",gray_200:"#E8E8EE",gray_300:"#E1E1E8",gray_400:"#CDCED6",gray_500:"#A9ABB8",gray_600:"#858899",gray_700:"#525463",gray_800:"#3E404C",gray_900:"#2B2D36",gray_950:"#252730"},b={colors:y},x={parameters:{actions:{argTypesRegex:"^on[A-Z].*"},controls:{matchers:{color:/(background|color)$/i,date:/Date$/}}}},O=[r=>t(a,{theme:b,children:[o(f,{}),o(h,{}),o(r,{})]})];export{O as decorators,x as default};
-//# sourceMappingURL=preview-6d9ba9ac.js.map
+`,y={green:"#4ed99c",green_dark:"#51C894",white:"#ffffff",gray_50:"#F7F7FA",gray_100:"#F0F0F5",gray_200:"#E8E8EE",gray_300:"#E1E1E8",gray_400:"#CDCED6",gray_500:"#A9ABB8",gray_600:"#858899",gray_700:"#525463",gray_800:"#3E404C",gray_900:"#2B2D36",gray_950:"#252730",purple:"#9D9BFF",purple_dark:"#6D6AFF",orange:"#FFC066",orange_dark:"#FF9600",pink:"#FF7EBC",pink_dark:"#FF3898",green_dark_2:"#00AD7C"},b={colors:y},x={parameters:{actions:{argTypesRegex:"^on[A-Z].*"},controls:{matchers:{color:/(background|color)$/i,date:/Date$/}}}},F=[e=>t(a,{theme:b,children:[o(f,{}),o(h,{}),o(e,{})]})];export{F as decorators,x as default};
+//# sourceMappingURL=preview-50525a8c.js.map
