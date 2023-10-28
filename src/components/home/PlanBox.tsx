@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { ProgressCircle } from './ProgressCircle';
+import { useNavigate } from 'react-router-dom';
 
 interface PlanBoxProps {
+  planId: number;
   mainplan: string;
   subplans: string[];
   startdate: string;
@@ -14,10 +16,22 @@ export const PlanBox = ({ ...props }: PlanBoxProps) => {
   const mainColors = ['#9D9BFF', '#FFC066', '#FF7EBC', '#4ED99C'];
   const darkColors = ['#6D6AFF', '#FF9600', '#FF3898', '#00AD7C'];
 
+  const navigate = useNavigate();
+
+  const handleClickMainText = (planId: number) => {
+    navigate(`/plan/${planId}`);
+  };
+
   return (
     <PlanBoxContainer color={mainColors[props.color]}>
       <InfoContainer>
-        <MainPlanText>{props.mainplan}</MainPlanText>
+        <MainPlanText
+          onClick={() => {
+            handleClickMainText(props.planId);
+          }}
+        >
+          {props.mainplan}
+        </MainPlanText>
         <StartDateText color={darkColors[props.color]}>
           {props.startdate}~
         </StartDateText>

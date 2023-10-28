@@ -6,28 +6,28 @@ import { AddPlanBtn } from '@components/home/AddPlanBtn';
 
 const data = [
   {
-    mainplan: '개발자로 취업하기',
+    mainplan: '1년 안에 백엔드 개발자로 취업하기',
     subplans: ['자기계발', '네트워킹', '프로젝트', '학습'],
     startdate: '2023.05.12',
-    percent: 50,
+    percent: 64,
   },
   {
-    mainplan: '개발자로 취업하기',
-    subplans: ['자기계발', '네트워킹', '프로젝트', '학습'],
-    startdate: '2023.05.12',
-    percent: 50,
+    mainplan: '20년 안에 내집 마련하기',
+    subplans: ['부동산 투자', '주택청약', '재테크', '경제 공부'],
+    startdate: '2023.01.01',
+    percent: 10,
   },
   {
-    mainplan: '개발자로 취업하기',
-    subplans: ['자기계발', '네트워킹', '프로젝트', '학습'],
-    startdate: '2023.05.12',
-    percent: 50,
+    mainplan: '하프 마라톤 완주하기',
+    subplans: ['기록관리', '러닝크루', '근력운동', '체중관리'],
+    startdate: '2023.08.30',
+    percent: 36,
   },
   {
-    mainplan: '개발자로 취업하기',
-    subplans: ['자기계발', '네트워킹', '프로젝트', '학습'],
+    mainplan: '대학교 졸업',
+    subplans: ['학점 관리', '졸업 프로젝트', '졸업 논문', '졸업 시험'],
     startdate: '2023.05.12',
-    percent: 50,
+    percent: 82,
   },
 ];
 
@@ -39,6 +39,7 @@ export const HomePage = () => {
         return (
           <PlanBox
             key={idx}
+            planId={idx}
             mainplan={el.mainplan}
             subplans={el.subplans}
             startdate={el.startdate}
