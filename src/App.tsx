@@ -31,7 +31,7 @@ function App() {
               <Route path={'/home'} element={<HomePage />} />
               <Route path={'/write'} element={<WritePage />} />
               <Route path={'/userinfo'} element={<UserInfoPage />} />
-              <Route path={'/plan'} element={<PlanPage />} />
+              <Route path={'/plan/:planId'} element={<PlanPage />} />
               <Route path={'/planimg'} element={<DownloadImgPage />} />
               <Route path={'*'} element={<ErrorPage />} />
             </Routes>
