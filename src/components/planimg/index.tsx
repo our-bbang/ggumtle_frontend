@@ -99,7 +99,7 @@ const StyledMiddleTableCell = styled.div<{ order?: string }>`
 `;
 
 interface PropsType {
-  refLink: React.RefObject<HTMLDivElement>;
+  refLink?: React.RefObject<HTMLDivElement>;
 }
 
 export const PlanImg = ({ refLink }: PropsType) => {
@@ -150,7 +150,7 @@ export const PlanImg = ({ refLink }: PropsType) => {
 const Container = styled.div`
   width: 390px;
   height: 390px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 
 export const StyledBigTable = styled.div`

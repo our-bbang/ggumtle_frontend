@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import { TopImgContent } from './TopImgContent';
 import { PlanContent } from './PlanContent';
-import { BottomContent } from './BottomContent';
 
 export const PlanLayout = () => {
   return (
@@ -12,8 +11,6 @@ export const PlanLayout = () => {
       <BottomBackground />
       {/*계획표 이미지, 텍스트*/}
       <PlanContent />
-      {/*이미지 저장 버튼*/}
-      <BottomContent />
       {/*상단 이미지들*/}
       <TopImgContent />
     </LayoutContainer>
@@ -21,8 +18,10 @@ export const PlanLayout = () => {
 };
 
 const LayoutContainer = styled.div`
+  padding-top: 40px;
   height: 100vh;
   position: relative;
+  background-color: #ccedff;
 `;
 
 const TopBackground = styled.div`
@@ -33,7 +32,7 @@ const TopBackground = styled.div`
 
 const BottomBackground = styled.div`
   width: 100%;
-  height: 80px;
+  height: 100%;
   //height: calc(100vh - 500px);
   background-color: #8cd27b;
 `;
