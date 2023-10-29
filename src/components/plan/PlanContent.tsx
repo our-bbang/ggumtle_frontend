@@ -16,9 +16,12 @@ export const PlanContent = () => {
 
 const PlanContentContainer = styled.div`
   position: absolute;
-  top: 0;
+  top: 40px;
   left: 50%;
   transform: translate(-50%, 0);
 `;
 
-const BackgroundImg = styled.img``;
+const BackgroundImg = styled.img`
+  border: none;
+  outline: none;
+`;

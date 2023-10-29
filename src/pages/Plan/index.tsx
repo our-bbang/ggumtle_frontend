@@ -1,19 +1,25 @@
-import { useRecoilValueLoadable } from 'recoil';
-import { mandalartPlan } from '@recoil/plan';
+import styled from 'styled-components';
+import { useState } from 'react';
+import { PlanLayout } from '@components/plan/PlanLayout';
+import { PlanEditLayout } from './PlanEditLayout';
+import { BackBtn } from '@components/plan/BackBtn';
+import { ViewToggle } from '@components/plan/ViewToggle';
 
-import { Loading } from './Loading';
-import { Plan } from './Plan';
-import { ErrorPage } from '@pages/Error';
-
+enum PlanView {
+  Image = 'Image',
+  Graph = 'Graph',
+}
 export const PlanPage = () => {
-  const planLodable = useRecoilValueLoadable(mandalartPlan);
-
-  switch (planLodable.state) {
-    case 'hasValue':
-      return <Plan BucketList={planLodable.contents} />;
-    case 'loading':
-      return <Loading />;
-    case 'hasError':
-      return <ErrorPage />;
-  }
+  const [view, setView] = useState<PlanView>(PlanView.Image);
+  return (
+    <PlanPageContainer>
+      <BackBtn />
+      <ViewToggle view={view} setView={setView} />
+      {view === PlanView.Image ? <PlanLayout /> : <PlanEditLayout />}
+    </PlanPageContainer>
+  );
 };
+
+const PlanPageContainer = styled.div`
+  position: relative;
+`;
