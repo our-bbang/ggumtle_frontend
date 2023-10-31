@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import { HomeHeader } from '@components/home/HomeHeader';
 import { PlanBox } from '@components/home/PlanBox';
 import { AddPlanBtn } from '@components/home/AddPlanBtn';
+import { useEffect } from 'react';
+
+import { useSetRecoilState } from 'recoil';
+import { userInfoState } from '@recoil/goal';
 
 const data = [
   {
@@ -32,6 +36,18 @@ const data = [
 ];
 
 export const HomePage = () => {
+  const setUserInfo = useSetRecoilState(userInfoState);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const user_email = params.get('user_email') || '';
+    const user_name = params.get('user_name') || '';
+    setUserInfo({
+      email: user_email,
+      name: user_name,
+    });
+  }, []);
+
   return (
     <HomePageContainer>
       <HomeHeader />

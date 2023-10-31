@@ -1,20 +1,23 @@
 import styled from 'styled-components';
-
-export const DetailModalContent = ({ modalContent }: any) => {
+import { SmallPlan } from 'src/types/plan';
+interface ModalProps {
+  modalContent: SmallPlan | undefined;
+}
+export const DetailModalContent = ({ modalContent }: ModalProps) => {
   return (
     <Container>
       <MainKeyword>{modalContent?.Value}</MainKeyword>
       <DetailKeyword>
-        <div>{`- ${modalContent?.Details?.Detail1}`}</div>
+        <div>{`- ${modalContent?.Detail1}`}</div>
       </DetailKeyword>
       <DetailKeyword>
-        <div>{`- ${modalContent?.Details?.Detail2}`}</div>
+        <div>{`- ${modalContent?.Detail2}`}</div>
       </DetailKeyword>
       <DetailKeyword>
-        <div>{`- ${modalContent?.Details?.Detail3}`}</div>
+        <div>{`- ${modalContent?.Detail3}`}</div>
       </DetailKeyword>
       <DetailKeyword>
-        <div>{`- ${modalContent?.Details?.Detail4}`}</div>
+        <div>{`- ${modalContent?.Detail4}`}</div>
       </DetailKeyword>
     </Container>
   );

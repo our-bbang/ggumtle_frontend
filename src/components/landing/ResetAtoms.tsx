@@ -1,5 +1,5 @@
 import { useResetRecoilState } from 'recoil';
-import { goalState } from '@recoil/goal';
+import { goalState, userInfoState } from '@recoil/goal';
 import { genderState, ageState, jobState } from '@recoil/userinput';
 import { useEffect } from 'react';
 
@@ -9,11 +9,14 @@ export const ResetAtoms = () => {
   const resetAge = useResetRecoilState(ageState);
   const resetJob = useResetRecoilState(jobState);
 
+  const resetUserInfo = useResetRecoilState(userInfoState);
+
   useEffect(() => {
     resetGoal();
     resetGender();
     resetAge();
     resetJob();
+    resetUserInfo();
   }, []);
 
   return <></>;

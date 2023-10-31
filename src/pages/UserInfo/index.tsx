@@ -16,7 +16,7 @@ import { BtnBottomContainer } from '@components/common/Buttons/BtnBottomContaine
 import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 import { useProgress } from '@hooks/useProgress';
-import { postRegisterAPI } from '@api/useAPIS';
+import { postRegisterAPI } from '@api/userAPIS';
 
 export const UserInfoPage = () => {
   const navigate = useNavigate();
@@ -30,17 +30,17 @@ export const UserInfoPage = () => {
   const isUserInfoComplete = useRecoilValue(isUserInfoCompletedSelector);
 
   useEffect(() => {
-    updateProgress('percent', 50);
-    updateProgress('completedStep', 1);
+    updateProgress('percent', 0);
+    updateProgress('completedStep', 0);
   }, []);
 
   useEffect(() => {
     if (isUserInfoComplete) {
-      updateProgress('percent', 100);
-      updateProgress('completedStep', 2);
-    } else {
       updateProgress('percent', 50);
       updateProgress('completedStep', 1);
+    } else {
+      updateProgress('percent', 0);
+      updateProgress('completedStep', 0);
     }
   }, [isUserInfoComplete]);
 
@@ -71,7 +71,7 @@ export const UserInfoPage = () => {
     });
     registerResponse.then((res) => {
       console.log(res);
-      navigate('/plan');
+      navigate('/write');
     });
   };
 

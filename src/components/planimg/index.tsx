@@ -1,44 +1,40 @@
 import styled, { css } from 'styled-components';
-import React from 'react';
 
 import { useRecoilValue } from 'recoil';
 import { goalState } from '@recoil/goal';
-import { planresult, BucketListDetail } from '@recoil/planresult';
+import { planresult } from '@recoil/planresult';
+
+import { SmallPlan } from 'src/types/plan';
 
 interface MiddleTableProps {
   order?: string;
-  mainkeyword?: string;
-  detailkeyword?: BucketListDetail;
+  content?: SmallPlan;
 }
-export const MiddleTable = ({
-  order,
-  mainkeyword,
-  detailkeyword,
-}: MiddleTableProps) => {
+export const MiddleTable = ({ order, content }: MiddleTableProps) => {
   return (
     <StyledMiddleTable>
       <StyledMiddleTableRow>
         <StyledMiddleTableCell></StyledMiddleTableCell>
         <StyledMiddleTableCell>
-          <div>{detailkeyword?.Detail1}</div>
+          <div>{content?.Detail1}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell></StyledMiddleTableCell>
       </StyledMiddleTableRow>
       <StyledMiddleTableRow>
         <StyledMiddleTableCell>
-          <div>{detailkeyword?.Detail2}</div>
+          <div>{content?.Detail2}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell className="middle" order={order}>
-          {mainkeyword}
+          {content?.Value}
         </StyledMiddleTableCell>
         <StyledMiddleTableCell>
-          <div>{detailkeyword?.Detail3}</div>
+          <div>{content?.Detail3}</div>
         </StyledMiddleTableCell>
       </StyledMiddleTableRow>
       <StyledMiddleTableRow>
         <StyledMiddleTableCell></StyledMiddleTableCell>
         <StyledMiddleTableCell>
-          <div>{detailkeyword?.Detail4}</div>
+          <div>{content?.Detail4}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell></StyledMiddleTableCell>
       </StyledMiddleTableRow>
@@ -98,48 +94,28 @@ const StyledMiddleTableCell = styled.div<{ order?: string }>`
   }};
 `;
 
-interface PropsType {
-  refLink?: React.RefObject<HTMLDivElement>;
-}
-
-export const PlanImg = ({ refLink }: PropsType) => {
+export const PlanImg = () => {
   const goal = useRecoilValue(goalState);
   const plan = useRecoilValue(planresult);
 
   return (
-    <Container ref={refLink}>
+    <Container>
       <StyledBigTable>
         <StyledBigTableRow>
           <MiddleTable />
-          <MiddleTable
-            order="1"
-            mainkeyword={plan?.BucketList?.MainKeyword1?.Value}
-            detailkeyword={plan?.BucketList?.MainKeyword1?.Details}
-          />
+          <MiddleTable order="1" content={plan?.MainKeyword} />
           <MiddleTable />
         </StyledBigTableRow>
         <StyledBigTableRow>
-          <MiddleTable
-            order="2"
-            mainkeyword={plan?.BucketList?.MainKeyword2?.Value}
-            detailkeyword={plan?.BucketList?.MainKeyword2?.Details}
-          />
+          <MiddleTable order="2" content={plan?.MainKeyword2} />
           <CenterTable>
             <div>{goal}</div>
           </CenterTable>
-          <MiddleTable
-            order="3"
-            mainkeyword={plan?.BucketList?.MainKeyword3?.Value}
-            detailkeyword={plan?.BucketList?.MainKeyword3?.Details}
-          />
+          <MiddleTable order="3" content={plan?.MainKeyword3} />
         </StyledBigTableRow>
         <StyledBigTableRow>
           <MiddleTable />
-          <MiddleTable
-            order="4"
-            mainkeyword={plan?.BucketList?.MainKeyword4?.Value}
-            detailkeyword={plan?.BucketList?.MainKeyword4?.Details}
-          />
+          <MiddleTable order="4" content={plan?.MainKeyword4} />
           <MiddleTable />
         </StyledBigTableRow>
       </StyledBigTable>

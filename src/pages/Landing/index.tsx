@@ -7,7 +7,6 @@ import { ResetAtoms } from '@components/landing/ResetAtoms';
 
 export const LandingPage = () => {
   const kakaoLogin = () => {
-    console.log(import.meta.env.CLIENT_ID);
     window.location.href =
       'https://kauth.kakao.com/oauth/authorize?client_id=' +
       import.meta.env.VITE_CLIENT_ID +
