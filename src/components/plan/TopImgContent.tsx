@@ -25,7 +25,7 @@ const TopImgContentContainer = styled.div`
 
 const CloudImg = styled.img`
   position: absolute;
-  top: 15px;
+  top: 60px;
   left: 15px;
 
   width: 120px;

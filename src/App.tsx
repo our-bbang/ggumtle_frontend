@@ -10,11 +10,13 @@ import { Layout } from '@components/layout';
 
 //pages
 import { LandingPage } from '@pages/Landing';
+import { HomePage } from '@pages/Home';
 import { WritePage } from '@pages/Write';
 import { UserInfoPage } from '@pages/UserInfo';
 import { PlanPage } from '@pages/Plan';
 import { ErrorPage } from '@pages/Error';
-import { DownloadImgPage } from '@pages/DownloadImg';
+import { CreatePlanPage } from '@pages/CreatePlan';
+import { MyPage } from '@pages/Mypage';
 
 function App() {
   return (
@@ -27,10 +29,12 @@ function App() {
           <Layout>
             <Routes>
               <Route path={'/'} element={<LandingPage />} />
+              <Route path={'/home'} element={<HomePage />} />
               <Route path={'/write'} element={<WritePage />} />
               <Route path={'/userinfo'} element={<UserInfoPage />} />
-              <Route path={'/plan'} element={<PlanPage />} />
-              <Route path={'/planimg'} element={<DownloadImgPage />} />
+              <Route path={'/plan/:planId'} element={<PlanPage />} />
+              <Route path={'/create'} element={<CreatePlanPage />} />
+              <Route path={'/mypage'} element={<MyPage />} />
               <Route path={'*'} element={<ErrorPage />} />
             </Routes>
           </Layout>

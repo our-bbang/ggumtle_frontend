@@ -1,17 +1,18 @@
 import { styled } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 import { MainLogo } from '@components/landing/MainLogo';
 import { BtnBottomContainer } from '@components/common/Buttons/BtnBottomContainer';
-import { BottomBtn } from '@components/common/Buttons/BottomBtn';
 
 import { ResetAtoms } from '@components/landing/ResetAtoms';
 
 export const LandingPage = () => {
-  const navigate = useNavigate();
-
-  const handleClickStartBtn = () => {
-    navigate('/write');
+  const kakaoLogin = () => {
+    window.location.href =
+      'https://kauth.kakao.com/oauth/authorize?client_id=' +
+      import.meta.env.VITE_CLIENT_ID +
+      '&redirect_uri=' +
+      import.meta.env.VITE_REDIRECT_URL +
+      '&response_type=code';
   };
 
   return (
@@ -19,7 +20,12 @@ export const LandingPage = () => {
       <ResetAtoms />
       <MainLogo />
       <BtnBottomContainer>
-        <StartBtn onClick={handleClickStartBtn}>시작하기</StartBtn>
+        <KakaoLoginBtn onClick={kakaoLogin}>
+          <img
+            src={import.meta.env.BASE_URL + './image/kakao_login_button.png'}
+            alt="카카오 로그인"
+          />
+        </KakaoLoginBtn>
       </BtnBottomContainer>
     </LandingPageContainer>
   );
@@ -29,10 +35,12 @@ const LandingPageContainer = styled.div`
   position: relative;
 `;
 
-// const Box = styled.div`
-//   width: 100%;
-//   height: 1000px;
-//   background-color: lightgray;
-// `;
-
-const StartBtn = styled(BottomBtn)``;
+const KakaoLoginBtn = styled.button`
+  width: 320px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  img {
+    width: 100%;
+  }
+`;
