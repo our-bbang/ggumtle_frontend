@@ -70,7 +70,6 @@ export const UserInfoPage = () => {
       user_job: userInput.job,
     });
     registerResponse.then((res) => {
-      console.log(res);
       navigate('/write');
     });
   };
