@@ -2,15 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="theme-color" content="#4ED99C" />
     <link rel="icon" type="image/svg+xml" href="/favicon_1.svg" />
+    <link
+      rel="alternate icon"
+      href="icons/favicon.ico"
+      type="ico"
+      sizes="32x32"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="icons/icon-196x196.png"
+      sizes="196x196"
+    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
     />
+    <link rel="manifest" href="/manifest.json" />
     <title>꿈틀: AI 기반 계획표 생성 서비스</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        // Register a service worker hosted at the root of the
+        // site using the default scope.
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then((registration) => {
+            console.log('Service worker registration succeeded:', registration);
+          })
+          .catch((err) => {
+            console.log('Service worker registration failed:', error);
+          });
+      } else {
+        console.log('Service workers are not supported.');
+      }
+    </script>
   </body>
 </html>
