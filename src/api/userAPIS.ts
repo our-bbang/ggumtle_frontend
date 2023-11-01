@@ -10,3 +10,12 @@ export const postRegisterAPI = async ({ ...props }: UserType) => {
     return null;
   }
 };
+
+export const getUserInfo = async (user_email: string) => {
+  try {
+    const response = await client.get(`/get/userinfo?user_email=${user_email}`);
+    return response.data;
+  } catch (error) {
+    return {};
+  }
+};

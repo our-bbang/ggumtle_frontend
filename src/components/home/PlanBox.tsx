@@ -37,7 +37,7 @@ export const PlanBox = ({ ...props }: PlanBoxProps) => {
           {props.mainplan}
         </MainPlanText>
         <StartDateText color={darkColors[props.color]}>
-          {props.startdate}~
+          {props.startdate.slice(0, 10).replace(/-/g, '.')} ~
         </StartDateText>
         <SubPlans>
           <svg
@@ -93,6 +93,10 @@ const MainPlanText = styled.div`
   color: white;
 
   margin-bottom: 8px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const StartDateText = styled.div<{ color: string }>`

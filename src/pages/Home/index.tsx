@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { ResetAtoms } from '@components/landing/ResetAtoms';
 import { HomeHeader } from '@components/home/HomeHeader';
 import { PlanBox } from '@components/home/PlanBox';
 import { AddPlanBtn } from '@components/home/AddPlanBtn';
@@ -37,6 +38,7 @@ export const HomePage = () => {
 
   return (
     <HomePageContainer>
+      <ResetAtoms />
       <HomeHeader />
       {planList.map((el, idx) => {
         return (
@@ -64,4 +66,5 @@ const HomePageContainer = styled.div`
   position: relative;
 
   padding-top: 100px;
+  padding-bottom: 50px;
 `;

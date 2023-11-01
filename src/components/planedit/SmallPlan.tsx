@@ -7,6 +7,7 @@ interface SmallPlanProps {
     React.SetStateAction<{
       mini_num: number;
       small_goal: string;
+      mini_goal: string;
     }>
   >;
   setIsOpenDoneModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,10 +17,11 @@ export const SmallPlan = ({
   setDoneModalData,
   setIsOpenDoneModal,
 }: SmallPlanProps) => {
-  const handleClickCheckBtn = (num: number, goal: string) => {
+  const handleClickCheckBtn = (num: number, goal: string, miniGoal: string) => {
     setDoneModalData({
       mini_num: num,
       small_goal: goal,
+      mini_goal: miniGoal,
     });
     setIsOpenDoneModal(true);
   };
@@ -37,7 +39,7 @@ export const SmallPlan = ({
       <PlanCheckBox>
         <CheckBtn
           onClick={() => {
-            handleClickCheckBtn(1, content.small_goal);
+            handleClickCheckBtn(1, content.small_goal, content.mini1);
           }}
         >
           {content.cmini1 === 1 ? (
@@ -59,7 +61,7 @@ export const SmallPlan = ({
       <PlanCheckBox>
         <CheckBtn
           onClick={() => {
-            handleClickCheckBtn(2, content.small_goal);
+            handleClickCheckBtn(2, content.small_goal, content.mini2);
           }}
         >
           {content.cmini2 === 1 ? (
@@ -81,7 +83,7 @@ export const SmallPlan = ({
       <PlanCheckBox>
         <CheckBtn
           onClick={() => {
-            handleClickCheckBtn(3, content.small_goal);
+            handleClickCheckBtn(3, content.small_goal, content.mini3);
           }}
         >
           {content.cmini3 === 1 ? (
@@ -103,7 +105,7 @@ export const SmallPlan = ({
       <PlanCheckBox>
         <CheckBtn
           onClick={() => {
-            handleClickCheckBtn(4, content.small_goal);
+            handleClickCheckBtn(4, content.small_goal, content.mini4);
           }}
         >
           {content.cmini4 === 1 ? (

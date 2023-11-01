@@ -13,6 +13,7 @@ interface DoneModalProps {
   plan: string;
   main_id: string;
   mini_num: number;
+  mini_goal: string;
 }
 export const DoneModal = ({
   isOpenModal,
@@ -20,6 +21,7 @@ export const DoneModal = ({
   plan,
   main_id,
   mini_num,
+  mini_goal,
 }: DoneModalProps) => {
   const userInfo = useRecoilValue(userInfoState);
   const setPlanResult = useSetRecoilState(planresult);
@@ -28,15 +30,15 @@ export const DoneModal = ({
     const response = patchPlan(userInfo.email, plan, main_id, mini_num, value);
     response
       .then(() => {
+        const planresult = getDetailPlan(userInfo.email, main_id);
+        planresult.then((res) => {
+          setPlanResult(res);
+        });
         setIsOpenModal(false);
       })
       .catch(() => {
         setIsOpenModal(false);
       });
-    const planresult = getDetailPlan(userInfo.email, main_id);
-    planresult.then((res) => {
-      setPlanResult(res);
-    });
   };
 
   return (
@@ -62,7 +64,7 @@ export const DoneModal = ({
           </CloseBtn>
         </ModalHeader>
         <PlanContent>
-          <PlanText>"{plan}"</PlanText>
+          <PlanText>"{mini_goal}"</PlanText>
           <GuideText>목표를 완료하셨나요?</GuideText>
         </PlanContent>
         <BottomBtnContainer>

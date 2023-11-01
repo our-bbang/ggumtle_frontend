@@ -27,7 +27,8 @@ export const PlanEditContent = ({
   const [doneModalData, setDoneModalData] = useState<{
     mini_num: number;
     small_goal: string;
-  }>({ mini_num: 0, small_goal: '' });
+    mini_goal: string;
+  }>({ mini_num: 0, small_goal: '', mini_goal: '' });
 
   const params = useParams();
   const { planId } = params;
@@ -45,6 +46,7 @@ export const PlanEditContent = ({
         plan={doneModalData.small_goal}
         mini_num={doneModalData.mini_num}
         main_id={planId || ''}
+        mini_goal={doneModalData.mini_goal}
       />
       {content === contentState.Done ? (
         <CompletePlan

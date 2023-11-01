@@ -11,6 +11,7 @@ interface CompletePlanProps {
     React.SetStateAction<{
       mini_num: number;
       small_goal: string;
+      mini_goal: string;
     }>
   >;
   setIsOpenDoneModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -39,7 +40,7 @@ export const CompletePlan = ({
             src={import.meta.env.BASE_URL + './icon/calendar_icon.svg'}
             alt="시작일"
           />
-          {plan?.result[0].date.slice(0, 10)} ~
+          {plan?.result[0].date.slice(0, 10).replace(/-/g, '.')} ~
         </Date>
         <Percent>
           달성률: <span>{plan.score}%</span>
