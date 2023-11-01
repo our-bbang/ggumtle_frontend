@@ -1,40 +1,83 @@
 import styled, { css } from 'styled-components';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { goalState } from '@recoil/goal';
 import { planresult } from '@recoil/planresult';
 
-import { SmallPlan } from 'src/types/plan';
+import { SmallGoal } from 'src/types/plan';
+import { planEditState } from '@recoil/plan';
+
+import { contentState } from '@components/planedit/PlanEditLayout';
 
 interface MiddleTableProps {
   order?: string;
-  content?: SmallPlan;
+  content?: SmallGoal;
+  setIsOpenEditModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  current?: contentState;
 }
-export const MiddleTable = ({ order, content }: MiddleTableProps) => {
+export const MiddleTable = ({
+  order,
+  content,
+  setIsOpenEditModal,
+  current,
+}: MiddleTableProps) => {
+  const setPlanEdit = useSetRecoilState(planEditState);
+
+  const handleClickPlan = (num: number, value: string) => {
+    if (current === contentState.Edit) {
+      setPlanEdit({
+        small_goal: content?.small_goal || '',
+        mini_num: num,
+        value: value,
+      });
+      if (setIsOpenEditModal) setIsOpenEditModal(true);
+    }
+  };
+
   return (
     <StyledMiddleTable>
       <StyledMiddleTableRow>
         <StyledMiddleTableCell></StyledMiddleTableCell>
-        <StyledMiddleTableCell>
-          <div>{content?.Detail1}</div>
+        <StyledMiddleTableCell
+          className={content?.cmini1 === 1 ? 'done' : ''}
+          onClick={() => {
+            handleClickPlan(1, content?.mini1 || '');
+          }}
+        >
+          <div>{content?.mini1}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell></StyledMiddleTableCell>
       </StyledMiddleTableRow>
       <StyledMiddleTableRow>
-        <StyledMiddleTableCell>
-          <div>{content?.Detail2}</div>
+        <StyledMiddleTableCell
+          className={content?.cmini2 === 1 ? 'done' : ''}
+          onClick={() => {
+            handleClickPlan(2, content?.mini2 || '');
+          }}
+        >
+          <div>{content?.mini2}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell className="middle" order={order}>
-          {content?.Value}
+          {content?.small_goal}
         </StyledMiddleTableCell>
-        <StyledMiddleTableCell>
-          <div>{content?.Detail3}</div>
+        <StyledMiddleTableCell
+          className={content?.cmini3 === 1 ? 'done' : ''}
+          onClick={() => {
+            handleClickPlan(3, content?.mini3 || '');
+          }}
+        >
+          <div>{content?.mini3}</div>
         </StyledMiddleTableCell>
       </StyledMiddleTableRow>
       <StyledMiddleTableRow>
         <StyledMiddleTableCell></StyledMiddleTableCell>
-        <StyledMiddleTableCell>
-          <div>{content?.Detail4}</div>
+        <StyledMiddleTableCell
+          className={content?.cmini4 === 1 ? 'done' : ''}
+          onClick={() => {
+            handleClickPlan(4, content?.mini4 || '');
+          }}
+        >
+          <div>{content?.mini4}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell></StyledMiddleTableCell>
       </StyledMiddleTableRow>
@@ -92,9 +135,21 @@ const StyledMiddleTableCell = styled.div<{ order?: string }>`
         background-color: #f8e3fb;
       `;
   }};
+
+  &.done {
+    background-color: ${({ theme }) => theme.colors.green};
+    color: ${({ theme }) => theme.colors.gray_100};
+    border: 1px solid transparent;
+  }
 `;
 
-export const PlanImg = () => {
+interface PlanImgProps {
+  isOpenEditModal: boolean;
+  setIsOpenEditModal: React.Dispatch<React.SetStateAction<boolean>>;
+  content: contentState;
+}
+
+export const PlanImg = ({ setIsOpenEditModal, content }: PlanImgProps) => {
   const goal = useRecoilValue(goalState);
   const plan = useRecoilValue(planresult);
 
@@ -103,19 +158,39 @@ export const PlanImg = () => {
       <StyledBigTable>
         <StyledBigTableRow>
           <MiddleTable />
-          <MiddleTable order="1" content={plan?.MainKeyword} />
+          <MiddleTable
+            order="1"
+            content={plan?.result[0]}
+            setIsOpenEditModal={setIsOpenEditModal}
+            current={content}
+          />
           <MiddleTable />
         </StyledBigTableRow>
         <StyledBigTableRow>
-          <MiddleTable order="2" content={plan?.MainKeyword2} />
+          <MiddleTable
+            order="2"
+            content={plan?.result[1]}
+            setIsOpenEditModal={setIsOpenEditModal}
+            current={content}
+          />
           <CenterTable>
             <div>{goal}</div>
           </CenterTable>
-          <MiddleTable order="3" content={plan?.MainKeyword3} />
+          <MiddleTable
+            order="3"
+            content={plan?.result[2]}
+            setIsOpenEditModal={setIsOpenEditModal}
+            current={content}
+          />
         </StyledBigTableRow>
         <StyledBigTableRow>
           <MiddleTable />
-          <MiddleTable order="4" content={plan?.MainKeyword4} />
+          <MiddleTable
+            order="4"
+            content={plan?.result[3]}
+            setIsOpenEditModal={setIsOpenEditModal}
+            current={content}
+          />
           <MiddleTable />
         </StyledBigTableRow>
       </StyledBigTable>

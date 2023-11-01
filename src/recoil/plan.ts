@@ -1,8 +1,9 @@
-import { selector } from 'recoil';
+import { selector, atom } from 'recoil';
 import { getMandalartPlan } from '@api/openai';
 import { goalState, userInfoState } from './goal';
 import { allUserInfo } from './userinput';
 import { getPlan } from '@api/planAPIS';
+import { PlanEdit } from 'src/types/plan';
 
 export const mandalartPlan = selector({
   key: 'mandalartPlan',
@@ -23,5 +24,14 @@ export const planData = selector({
     const response = await getPlan(goal, userInfo.email);
     if (response.error) throw response.error;
     return response;
+  },
+});
+
+export const planEditState = atom<PlanEdit>({
+  key: 'planEditState',
+  default: {
+    small_goal: '',
+    mini_num: 0,
+    value: '',
   },
 });

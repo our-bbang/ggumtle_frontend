@@ -29,7 +29,7 @@ export function WriteArea() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text.length > 0) {
-      navigate('/plan');
+      navigate('/create');
     }
   };
 

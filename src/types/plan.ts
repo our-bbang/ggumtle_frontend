@@ -1,26 +1,35 @@
-interface MainGoal {
+export interface PlanList {
+  datetime: string;
   main: string;
   main_id: number;
+  small1: string;
+  small2: string;
+  small3: string;
+  small4: string;
+  total: number;
 }
 
-interface SmallGoal {
+export interface SmallGoal {
   small_goal: string;
-  mini: string[];
+  mini1: string;
+  mini2: string;
+  mini3: string;
+  mini4: string;
+  cmini1: number;
+  cmini2: number;
+  cmini3: number;
+  cmini4: number;
+  total: number;
+  date: string;
 }
 
-export interface SmallPlan {
-  Detail1: string;
-  Detail2: string;
-  Detail3: string;
-  Detail4: string;
-  Value: string;
+export interface PlanDetail {
+  result: SmallGoal[];
+  score: number;
 }
 
-export interface PlanType {
-  MainKeyword: SmallPlan;
-  MainKeyword2: SmallPlan;
-  MainKeyword3: SmallPlan;
-  MainKeyword4: SmallPlan;
+export interface PlanEdit {
+  small_goal: string;
+  mini_num: number;
+  value: string;
 }
-
-export type GoalType = MainGoal | SmallGoal;

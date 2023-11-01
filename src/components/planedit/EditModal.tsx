@@ -1,11 +1,56 @@
 import styled from 'styled-components';
 import { Modal } from '@components/common/Modal';
+import { useEffect, useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { planEditState } from '@recoil/plan';
+
+import { editPlan } from '@api/planAPIS';
+import { userInfoState } from '@recoil/goal';
+import { useParams } from 'react-router-dom';
 
 interface EditModalProps {
   isOpenModal: boolean;
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const EditModal = ({ isOpenModal, setIsOpenModal }: EditModalProps) => {
+  const userInfo = useRecoilValue(userInfoState);
+  const [planEdit, setPlanEdit] = useRecoilState(planEditState);
+  const [text, setText] = useState<string>('');
+
+  const params = useParams();
+  const { planId } = params;
+
+  useEffect(() => {
+    setText(planEdit.value);
+  }, [planEdit.value]);
+
+  const handleChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(e.target.value);
+    setPlanEdit({
+      ...planEdit,
+      value: e.target.value,
+    });
+  };
+
+  const handleClickEditBtn = () => {
+    const response = editPlan(
+      userInfo.email,
+      planEdit.small_goal,
+      planId || '',
+      planEdit.mini_num,
+      planEdit.value,
+    );
+    response
+      .then(() => {
+        setIsOpenModal(false);
+        setText('');
+      })
+      .catch(() => {
+        setIsOpenModal(false);
+        setText('');
+      });
+  };
+
   return (
     <Modal
       width="280px"
@@ -28,10 +73,21 @@ export const EditModal = ({ isOpenModal, setIsOpenModal }: EditModalProps) => {
             />
           </CloseBtn>
         </ModalHeader>
-        <EditTextArea />
+        <EditTextArea
+          value={text}
+          onChange={(e) => {
+            handleChangeText(e);
+          }}
+        />
         <BottomBtnContainer>
-          <CancelBtn>취소</CancelBtn>
-          <DoneBtn>편집 완료</DoneBtn>
+          <CancelBtn
+            onClick={() => {
+              setIsOpenModal(false);
+            }}
+          >
+            취소
+          </CancelBtn>
+          <DoneBtn onClick={handleClickEditBtn}>편집 완료</DoneBtn>
         </BottomBtnContainer>
       </EditModalContainer>
     </Modal>

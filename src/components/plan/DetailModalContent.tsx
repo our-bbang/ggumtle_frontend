@@ -1,23 +1,23 @@
 import styled from 'styled-components';
-import { SmallPlan } from 'src/types/plan';
+import { SmallGoal } from 'src/types/plan';
 interface ModalProps {
-  modalContent: SmallPlan | undefined;
+  modalContent: SmallGoal | undefined;
 }
 export const DetailModalContent = ({ modalContent }: ModalProps) => {
   return (
     <Container>
-      <MainKeyword>{modalContent?.Value}</MainKeyword>
+      <MainKeyword>{modalContent?.small_goal}</MainKeyword>
       <DetailKeyword>
-        <div>{`- ${modalContent?.Detail1}`}</div>
+        <div>{`- ${modalContent?.mini1}`}</div>
       </DetailKeyword>
       <DetailKeyword>
-        <div>{`- ${modalContent?.Detail2}`}</div>
+        <div>{`- ${modalContent?.mini2}`}</div>
       </DetailKeyword>
       <DetailKeyword>
-        <div>{`- ${modalContent?.Detail3}`}</div>
+        <div>{`- ${modalContent?.mini3}`}</div>
       </DetailKeyword>
       <DetailKeyword>
-        <div>{`- ${modalContent?.Detail4}`}</div>
+        <div>{`- ${modalContent?.mini4}`}</div>
       </DetailKeyword>
     </Container>
   );

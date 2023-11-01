@@ -9,8 +9,9 @@ enum PlanView {
   Image = 'Image',
   Graph = 'Graph',
 }
+
 export const PlanContent = () => {
-  const [view, setView] = useState<PlanView>(PlanView.Image);
+  const [view, setView] = useState<PlanView>(PlanView.Graph);
   return (
     <PlanPageContainer>
       <BackBtn />

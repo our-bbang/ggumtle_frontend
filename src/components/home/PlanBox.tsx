@@ -19,7 +19,11 @@ export const PlanBox = ({ ...props }: PlanBoxProps) => {
   const navigate = useNavigate();
 
   const handleClickMainText = (planId: number) => {
-    navigate(`/plan/${planId}`);
+    navigate(`/plan/${planId}`, {
+      state: {
+        mainGoal: props.mainplan,
+      },
+    });
   };
 
   return (
