@@ -5,15 +5,33 @@ import { EditButtons } from './EditButtons';
 import { EditModal } from './EditModal';
 import { DoneModal } from './DoneModal';
 
-export enum contentState {
-  Default = 'Default',
-  Edit = 'Edit',
-  Done = 'Done',
+import { CompletePlan } from './CompletePlan';
+import { useParams } from 'react-router-dom';
+
+import { contentState } from './PlanEditLayout';
+
+interface PlanEditContentProps {
+  isOpenEditModal: boolean;
+  setIsOpenEditModal: React.Dispatch<React.SetStateAction<boolean>>;
+  content: contentState;
+  setContent: React.Dispatch<React.SetStateAction<contentState>>;
 }
-export const PlanEditContent = () => {
-  const [content, setContent] = useState<contentState>(contentState.Default);
-  const [isOpenEditModal, setIsOpenEditModal] = useState<boolean>(false);
-  const [isOpenDoneModal, setIsOpenDoneModal] = useState<boolean>(true);
+export const PlanEditContent = ({
+  isOpenEditModal,
+  setIsOpenEditModal,
+  content,
+  setContent,
+}: PlanEditContentProps) => {
+  const [isOpenDoneModal, setIsOpenDoneModal] = useState<boolean>(false);
+
+  const [doneModalData, setDoneModalData] = useState<{
+    mini_num: number;
+    small_goal: string;
+    mini_goal: string;
+  }>({ mini_num: 0, small_goal: '', mini_goal: '' });
+
+  const params = useParams();
+  const { planId } = params;
 
   return (
     <PlanEditContentContainer>
@@ -25,8 +43,18 @@ export const PlanEditContent = () => {
       <DoneModal
         isOpenModal={isOpenDoneModal}
         setIsOpenModal={setIsOpenDoneModal}
-        plan="프로그래밍 공부하기"
+        plan={doneModalData.small_goal}
+        mini_num={doneModalData.mini_num}
+        main_id={planId || ''}
+        mini_goal={doneModalData.mini_goal}
       />
+      {content === contentState.Done ? (
+        <CompletePlan
+          setContent={setContent}
+          setDoneModalData={setDoneModalData}
+          setIsOpenDoneModal={setIsOpenDoneModal}
+        />
+      ) : null}
     </PlanEditContentContainer>
   );
 };

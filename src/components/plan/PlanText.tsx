@@ -2,7 +2,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { useRecoilValue } from 'recoil';
-import { planresult, BucketListItem } from '@recoil/planresult';
+import { planresult } from '@recoil/planresult';
+import { SmallGoal } from 'src/types/plan';
 import { goalState } from '@recoil/goal';
 
 import { Modal as DetailKeywordModal } from '@components/common/Modal';
@@ -10,7 +11,7 @@ import { DetailModalContent } from './DetailModalContent';
 
 export const PlanText = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [modalContent, setModalContent] = useState<BucketListItem>();
+  const [modalContent, setModalContent] = useState<SmallGoal>();
 
   const goal = useRecoilValue(goalState);
   const plan = useRecoilValue(planresult);
@@ -18,13 +19,13 @@ export const PlanText = () => {
   const handleClickMainKeyword = (key: number) => {
     setIsOpenModal(true);
     if (key === 1) {
-      setModalContent(plan?.BucketList?.MainKeyword1);
+      setModalContent(plan?.result[0]);
     } else if (key === 2) {
-      setModalContent(plan?.BucketList?.MainKeyword2);
+      setModalContent(plan?.result[1]);
     } else if (key === 3) {
-      setModalContent(plan?.BucketList?.MainKeyword3);
+      setModalContent(plan?.result[2]);
     } else if (key === 4) {
-      setModalContent(plan?.BucketList?.MainKeyword4);
+      setModalContent(plan?.result[3]);
     }
   };
 
@@ -42,24 +43,16 @@ export const PlanText = () => {
         <GoalText>{goal}</GoalText>
       </GoalContainer>
       <MainKeyword_TopLeft onClick={() => handleClickMainKeyword(1)}>
-        <MainKeywordText>
-          {plan?.BucketList?.MainKeyword1?.Value}
-        </MainKeywordText>
+        <MainKeywordText>{plan.result[0]?.small_goal}</MainKeywordText>
       </MainKeyword_TopLeft>
       <MainKeyword_TopRight onClick={() => handleClickMainKeyword(2)}>
-        <MainKeywordText>
-          {plan?.BucketList?.MainKeyword2?.Value}
-        </MainKeywordText>
+        <MainKeywordText>{plan.result[1]?.small_goal}</MainKeywordText>
       </MainKeyword_TopRight>
       <MainKeyword_BottomLeft onClick={() => handleClickMainKeyword(3)}>
-        <MainKeywordText>
-          {plan?.BucketList?.MainKeyword3?.Value}
-        </MainKeywordText>
+        <MainKeywordText>{plan.result[2]?.small_goal}</MainKeywordText>
       </MainKeyword_BottomLeft>
       <MainKeyword_BottomRight onClick={() => handleClickMainKeyword(4)}>
-        <MainKeywordText>
-          {plan?.BucketList?.MainKeyword4?.Value}
-        </MainKeywordText>
+        <MainKeywordText>{plan.result[3]?.small_goal}</MainKeywordText>
       </MainKeyword_BottomRight>
     </PlanTextContainer>
   );

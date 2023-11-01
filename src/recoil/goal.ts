@@ -6,3 +6,16 @@ export const goalState = atom<string>({
   default: '',
   effects_UNSTABLE: [persistAtom],
 });
+
+interface UserInfo {
+  email: string;
+  name: string;
+}
+export const userInfoState = atom<UserInfo>({
+  key: 'userInfoState',
+  default: {
+    email: '',
+    name: '',
+  },
+  effects_UNSTABLE: [persistAtom],
+});

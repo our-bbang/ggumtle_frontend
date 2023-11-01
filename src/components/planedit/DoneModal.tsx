@@ -1,17 +1,46 @@
 import styled from 'styled-components';
 import { Modal } from '@components/common/Modal';
 import { ModalHeader, HeaderContent, CloseBtn } from './EditModal';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { userInfoState } from '@recoil/goal';
+
+import { patchPlan, getDetailPlan } from '@api/planAPIS';
+import { planresult } from '@recoil/planresult';
 
 interface DoneModalProps {
   isOpenModal: boolean;
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   plan: string;
+  main_id: string;
+  mini_num: number;
+  mini_goal: string;
 }
 export const DoneModal = ({
   isOpenModal,
   setIsOpenModal,
   plan,
+  main_id,
+  mini_num,
+  mini_goal,
 }: DoneModalProps) => {
+  const userInfo = useRecoilValue(userInfoState);
+  const setPlanResult = useSetRecoilState(planresult);
+
+  const handleClickBtn = (value: number) => {
+    const response = patchPlan(userInfo.email, plan, main_id, mini_num, value);
+    response
+      .then(() => {
+        const planresult = getDetailPlan(userInfo.email, main_id);
+        planresult.then((res) => {
+          setPlanResult(res);
+        });
+        setIsOpenModal(false);
+      })
+      .catch(() => {
+        setIsOpenModal(false);
+      });
+  };
+
   return (
     <Modal
       width="320px"
@@ -35,12 +64,24 @@ export const DoneModal = ({
           </CloseBtn>
         </ModalHeader>
         <PlanContent>
-          <PlanText>"{plan}"</PlanText>
+          <PlanText>"{mini_goal}"</PlanText>
           <GuideText>목표를 완료하셨나요?</GuideText>
         </PlanContent>
         <BottomBtnContainer>
-          <CancelBtn>아직이에요</CancelBtn>
-          <DoneBtn>완료했어요</DoneBtn>
+          <CancelBtn
+            onClick={() => {
+              handleClickBtn(0);
+            }}
+          >
+            아직이에요
+          </CancelBtn>
+          <DoneBtn
+            onClick={() => {
+              handleClickBtn(1);
+            }}
+          >
+            완료했어요
+          </DoneBtn>
         </BottomBtnContainer>
       </DoneModalContainer>
     </Modal>

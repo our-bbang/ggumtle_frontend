@@ -15,7 +15,8 @@ import { WritePage } from '@pages/Write';
 import { UserInfoPage } from '@pages/UserInfo';
 import { PlanPage } from '@pages/Plan';
 import { ErrorPage } from '@pages/Error';
-import { DownloadImgPage } from '@pages/DownloadImg';
+import { CreatePlanPage } from '@pages/CreatePlan';
+import { MyPage } from '@pages/Mypage';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
               <Route path={'/write'} element={<WritePage />} />
               <Route path={'/userinfo'} element={<UserInfoPage />} />
               <Route path={'/plan/:planId'} element={<PlanPage />} />
-              <Route path={'/planimg'} element={<DownloadImgPage />} />
+              <Route path={'/create'} element={<CreatePlanPage />} />
+              <Route path={'/mypage'} element={<MyPage />} />
               <Route path={'*'} element={<ErrorPage />} />
             </Routes>
           </Layout>

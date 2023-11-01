@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 import { getYear, getMonth, getDate } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 
 export const HomeHeader = () => {
   const date = new Date();
+  const navigate = useNavigate();
+
   return (
     <HomeHeaderContainer>
       <TopContainer>
         <MainText>나의 꿈틀</MainText>
-        <MyPageBtn>
+        <MyPageBtn
+          onClick={() => {
+            navigate('/mypage');
+          }}
+        >
           <img
             src={import.meta.env.BASE_URL + './icon/mypage_icon.svg'}
             alt="마이페이지"
@@ -33,6 +40,7 @@ const HomeHeaderContainer = styled.div`
   top: 0;
 
   background-color: white;
+  z-index: 500;
 `;
 
 const TopContainer = styled.div`

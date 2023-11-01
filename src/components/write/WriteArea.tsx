@@ -13,22 +13,23 @@ export function WriteArea() {
   const navigate = useNavigate();
 
   const updateProgress = useProgress();
-
   const [text, setText] = useRecoilState(goalState);
 
   const handleChangeTextBox = (e: FormEvent<HTMLTextAreaElement>) => {
     setText(e.currentTarget.value);
     if (e.currentTarget.value.length === 0) {
-      updateProgress('percent', 0);
-    } else if (e.currentTarget.value.length > 0) {
       updateProgress('percent', 50);
+      updateProgress('completedStep', 1);
+    } else if (e.currentTarget.value.length > 0) {
+      updateProgress('percent', 100);
+      updateProgress('completedStep', 2);
     }
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text.length > 0) {
-      navigate('/userinfo');
+      navigate('/create');
     }
   };
 

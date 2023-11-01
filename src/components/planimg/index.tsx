@@ -1,44 +1,83 @@
 import styled, { css } from 'styled-components';
-import React from 'react';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { goalState } from '@recoil/goal';
-import { planresult, BucketListDetail } from '@recoil/planresult';
+import { planresult } from '@recoil/planresult';
+
+import { SmallGoal } from 'src/types/plan';
+import { planEditState } from '@recoil/plan';
+
+import { contentState } from '@components/planedit/PlanEditLayout';
 
 interface MiddleTableProps {
   order?: string;
-  mainkeyword?: string;
-  detailkeyword?: BucketListDetail;
+  content?: SmallGoal;
+  setIsOpenEditModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  current?: contentState;
 }
 export const MiddleTable = ({
   order,
-  mainkeyword,
-  detailkeyword,
+  content,
+  setIsOpenEditModal,
+  current,
 }: MiddleTableProps) => {
+  const setPlanEdit = useSetRecoilState(planEditState);
+
+  const handleClickPlan = (num: number, value: string) => {
+    if (current === contentState.Edit) {
+      setPlanEdit({
+        small_goal: content?.small_goal || '',
+        mini_num: num,
+        value: value,
+      });
+      if (setIsOpenEditModal) setIsOpenEditModal(true);
+    }
+  };
+
   return (
     <StyledMiddleTable>
       <StyledMiddleTableRow>
         <StyledMiddleTableCell></StyledMiddleTableCell>
-        <StyledMiddleTableCell>
-          <div>{detailkeyword?.Detail1}</div>
+        <StyledMiddleTableCell
+          className={content?.cmini1 === 1 ? 'done' : ''}
+          onClick={() => {
+            handleClickPlan(1, content?.mini1 || '');
+          }}
+        >
+          <div>{content?.mini1}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell></StyledMiddleTableCell>
       </StyledMiddleTableRow>
       <StyledMiddleTableRow>
-        <StyledMiddleTableCell>
-          <div>{detailkeyword?.Detail2}</div>
+        <StyledMiddleTableCell
+          className={content?.cmini2 === 1 ? 'done' : ''}
+          onClick={() => {
+            handleClickPlan(2, content?.mini2 || '');
+          }}
+        >
+          <div>{content?.mini2}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell className="middle" order={order}>
-          {mainkeyword}
+          {content?.small_goal}
         </StyledMiddleTableCell>
-        <StyledMiddleTableCell>
-          <div>{detailkeyword?.Detail3}</div>
+        <StyledMiddleTableCell
+          className={content?.cmini3 === 1 ? 'done' : ''}
+          onClick={() => {
+            handleClickPlan(3, content?.mini3 || '');
+          }}
+        >
+          <div>{content?.mini3}</div>
         </StyledMiddleTableCell>
       </StyledMiddleTableRow>
       <StyledMiddleTableRow>
         <StyledMiddleTableCell></StyledMiddleTableCell>
-        <StyledMiddleTableCell>
-          <div>{detailkeyword?.Detail4}</div>
+        <StyledMiddleTableCell
+          className={content?.cmini4 === 1 ? 'done' : ''}
+          onClick={() => {
+            handleClickPlan(4, content?.mini4 || '');
+          }}
+        >
+          <div>{content?.mini4}</div>
         </StyledMiddleTableCell>
         <StyledMiddleTableCell></StyledMiddleTableCell>
       </StyledMiddleTableRow>
@@ -96,49 +135,61 @@ const StyledMiddleTableCell = styled.div<{ order?: string }>`
         background-color: #f8e3fb;
       `;
   }};
+
+  &.done {
+    background-color: ${({ theme }) => theme.colors.green};
+    color: ${({ theme }) => theme.colors.gray_100};
+    border: 1px solid transparent;
+  }
 `;
 
-interface PropsType {
-  refLink?: React.RefObject<HTMLDivElement>;
+interface PlanImgProps {
+  isOpenEditModal: boolean;
+  setIsOpenEditModal: React.Dispatch<React.SetStateAction<boolean>>;
+  content: contentState;
 }
 
-export const PlanImg = ({ refLink }: PropsType) => {
+export const PlanImg = ({ setIsOpenEditModal, content }: PlanImgProps) => {
   const goal = useRecoilValue(goalState);
   const plan = useRecoilValue(planresult);
 
   return (
-    <Container ref={refLink}>
+    <Container>
       <StyledBigTable>
         <StyledBigTableRow>
           <MiddleTable />
           <MiddleTable
             order="1"
-            mainkeyword={plan?.BucketList?.MainKeyword1?.Value}
-            detailkeyword={plan?.BucketList?.MainKeyword1?.Details}
+            content={plan?.result[0]}
+            setIsOpenEditModal={setIsOpenEditModal}
+            current={content}
           />
           <MiddleTable />
         </StyledBigTableRow>
         <StyledBigTableRow>
           <MiddleTable
             order="2"
-            mainkeyword={plan?.BucketList?.MainKeyword2?.Value}
-            detailkeyword={plan?.BucketList?.MainKeyword2?.Details}
+            content={plan?.result[1]}
+            setIsOpenEditModal={setIsOpenEditModal}
+            current={content}
           />
           <CenterTable>
             <div>{goal}</div>
           </CenterTable>
           <MiddleTable
             order="3"
-            mainkeyword={plan?.BucketList?.MainKeyword3?.Value}
-            detailkeyword={plan?.BucketList?.MainKeyword3?.Details}
+            content={plan?.result[2]}
+            setIsOpenEditModal={setIsOpenEditModal}
+            current={content}
           />
         </StyledBigTableRow>
         <StyledBigTableRow>
           <MiddleTable />
           <MiddleTable
             order="4"
-            mainkeyword={plan?.BucketList?.MainKeyword4?.Value}
-            detailkeyword={plan?.BucketList?.MainKeyword4?.Details}
+            content={plan?.result[3]}
+            setIsOpenEditModal={setIsOpenEditModal}
+            current={content}
           />
           <MiddleTable />
         </StyledBigTableRow>
