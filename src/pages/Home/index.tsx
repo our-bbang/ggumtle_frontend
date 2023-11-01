@@ -61,7 +61,7 @@ export const HomePage = () => {
 };
 
 const Version = styled.div`
-  display: hidden;
+  display: none;
 `;
 
 const HomePageContainer = styled.div`
