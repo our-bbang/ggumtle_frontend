@@ -43,16 +43,16 @@ export const PlanText = () => {
         <GoalText>{goal}</GoalText>
       </GoalContainer>
       <MainKeyword_TopLeft onClick={() => handleClickMainKeyword(1)}>
-        <MainKeywordText>{plan.result[0]?.small_goal}</MainKeywordText>
+        <MainKeywordText>{plan?.result[0]?.small_goal}</MainKeywordText>
       </MainKeyword_TopLeft>
       <MainKeyword_TopRight onClick={() => handleClickMainKeyword(2)}>
-        <MainKeywordText>{plan.result[1]?.small_goal}</MainKeywordText>
+        <MainKeywordText>{plan?.result[1]?.small_goal}</MainKeywordText>
       </MainKeyword_TopRight>
       <MainKeyword_BottomLeft onClick={() => handleClickMainKeyword(3)}>
-        <MainKeywordText>{plan.result[2]?.small_goal}</MainKeywordText>
+        <MainKeywordText>{plan?.result[2]?.small_goal}</MainKeywordText>
       </MainKeyword_BottomLeft>
       <MainKeyword_BottomRight onClick={() => handleClickMainKeyword(4)}>
-        <MainKeywordText>{plan.result[3]?.small_goal}</MainKeywordText>
+        <MainKeywordText>{plan?.result[3]?.small_goal}</MainKeywordText>
       </MainKeyword_BottomRight>
     </PlanTextContainer>
   );

@@ -11,7 +11,7 @@ enum PlanView {
 }
 
 export const PlanContent = () => {
-  const [view, setView] = useState<PlanView>(PlanView.Graph);
+  const [view, setView] = useState<PlanView>(PlanView.Image);
   return (
     <PlanPageContainer>
       <BackBtn />

@@ -43,26 +43,26 @@ export const CompletePlan = ({
           {plan?.result[0].date.slice(0, 10).replace(/-/g, '.')} ~
         </Date>
         <Percent>
-          달성률: <span>{plan.score}%</span>
+          달성률: <span>{plan?.score}%</span>
         </Percent>
       </PlanInfo>
       <SmallPlan
-        content={plan.result[0]}
+        content={plan?.result[0]}
         setDoneModalData={setDoneModalData}
         setIsOpenDoneModal={setIsOpenDoneModal}
       />
       <SmallPlan
-        content={plan.result[1]}
+        content={plan?.result[1]}
         setDoneModalData={setDoneModalData}
         setIsOpenDoneModal={setIsOpenDoneModal}
       />
       <SmallPlan
-        content={plan.result[2]}
+        content={plan?.result[2]}
         setDoneModalData={setDoneModalData}
         setIsOpenDoneModal={setIsOpenDoneModal}
       />
       <SmallPlan
-        content={plan.result[3]}
+        content={plan?.result[3]}
         setDoneModalData={setDoneModalData}
         setIsOpenDoneModal={setIsOpenDoneModal}
       />
