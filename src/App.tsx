@@ -30,6 +30,7 @@ function App() {
             <Routes>
               <Route path={'/'} element={<LandingPage />} />
               <Route path={'/home'} element={<HomePage />} />
+              <Route path={'/home/*'} element={<HomePage />} />
               <Route path={'/write'} element={<WritePage />} />
               <Route path={'/userinfo'} element={<UserInfoPage />} />
               <Route path={'/plan/:planId'} element={<PlanPage />} />
