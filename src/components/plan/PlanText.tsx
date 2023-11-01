@@ -11,7 +11,19 @@ import { DetailModalContent } from './DetailModalContent';
 
 export const PlanText = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [modalContent, setModalContent] = useState<SmallGoal>();
+  const [modalContent, setModalContent] = useState<SmallGoal>({
+    small_goal: '',
+    mini1: '',
+    mini2: '',
+    mini3: '',
+    mini4: '',
+    cmini1: 0,
+    cmini2: 0,
+    cmini3: 0,
+    cmini4: 0,
+    total: 0,
+    date: '',
+  });
 
   const goal = useRecoilValue(goalState);
   const plan = useRecoilValue(planresult);
