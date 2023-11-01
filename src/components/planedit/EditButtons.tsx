@@ -78,6 +78,7 @@ const DoneBtn = styled(Button)`
 
 const EditInfoText = styled.div`
   width: 390px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,7 +89,6 @@ const EditInfoText = styled.div`
   }
 
   div {
-    flex: 1;
     font-family: 'PretendardMedium';
     font-size: 14px;
     color: #525463;

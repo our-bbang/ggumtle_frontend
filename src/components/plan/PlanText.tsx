@@ -88,7 +88,7 @@ const GoalContainer = styled.div`
   height: 90px;
   padding: 6px;
   border-radius: 8px;
-  background-color: white;
+  background-color: transparent;
 
   display: flex;
   align-items: center;
@@ -101,7 +101,7 @@ const GoalText = styled.div`
   font-family: 'PretendardMedium';
   font-size: 14px;
   line-height: 15px;
-  color: ${({ theme }) => theme.colors.gray_900};
+  color: white;
   word-wrap: keep-all;
 `;
 
