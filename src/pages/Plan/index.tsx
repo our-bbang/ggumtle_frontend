@@ -23,7 +23,7 @@ export const PlanPage = () => {
       setPlanResult(res);
     });
     setGoalState(mainGoal);
-  }, []);
+  }, [planId]);
 
   return <PlanContent />;
 };
