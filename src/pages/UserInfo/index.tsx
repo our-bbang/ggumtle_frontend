@@ -69,7 +69,7 @@ export const UserInfoPage = () => {
       user_age,
       user_job: userInput.job,
     });
-    registerResponse.then((res) => {
+    registerResponse.then(() => {
       navigate('/write');
     });
   };
