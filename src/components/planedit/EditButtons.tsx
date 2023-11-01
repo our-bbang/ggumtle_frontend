@@ -89,6 +89,7 @@ const EditInfoText = styled.div`
   }
 
   div {
+    width: 100%;
     font-family: 'PretendardMedium';
     font-size: 14px;
     color: #525463;
