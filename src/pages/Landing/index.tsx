@@ -11,7 +11,7 @@ export const LandingPage = () => {
       'https://kauth.kakao.com/oauth/authorize?client_id=' +
       '2841134ed95f82bded9c274a953843bb' +
       '&redirect_uri=' +
-      'http://ec2-43-201-78-71.ap-northeast-2.compute.amazonaws.com:3080/api/auth/kakao' +
+      'http://ec2-13-209-45-5.ap-northeast-2.compute.amazonaws.com:3080/api/auth/kakao' +
       '&response_type=code';
   };
 
