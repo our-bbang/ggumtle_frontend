@@ -85,10 +85,11 @@ const EditInfoText = styled.div`
 
   img {
     width: 24px;
-    margin-right: 4px;
+    margin-right: 6px;
   }
 
   div {
+    flex: 1;
     font-family: 'PretendardMedium';
     font-size: 14px;
     color: #525463;
