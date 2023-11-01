@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { Modal } from '@components/common/Modal';
 import { useEffect, useState } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { planEditState } from '@recoil/plan';
 
-import { editPlan } from '@api/planAPIS';
+import { editPlan, getDetailPlan } from '@api/planAPIS';
 import { userInfoState } from '@recoil/goal';
 import { useParams } from 'react-router-dom';
+import { planresult } from '@recoil/planresult';
 
 interface EditModalProps {
   isOpenModal: boolean;
@@ -14,6 +15,7 @@ interface EditModalProps {
 }
 export const EditModal = ({ isOpenModal, setIsOpenModal }: EditModalProps) => {
   const userInfo = useRecoilValue(userInfoState);
+  const setPlanResult = useSetRecoilState(planresult);
   const [planEdit, setPlanEdit] = useRecoilState(planEditState);
   const [text, setText] = useState<string>('');
 
@@ -42,6 +44,10 @@ export const EditModal = ({ isOpenModal, setIsOpenModal }: EditModalProps) => {
     );
     response
       .then(() => {
+        const planresult = getDetailPlan(userInfo.email, planId || '');
+        planresult.then((res) => {
+          setPlanResult(res);
+        });
         setIsOpenModal(false);
         setText('');
       })

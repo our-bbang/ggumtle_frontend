@@ -86,7 +86,6 @@ const GoalContainer = styled.div`
 
   width: 90px;
   height: 90px;
-  padding: 6px;
   border-radius: 8px;
   background-color: transparent;
 
