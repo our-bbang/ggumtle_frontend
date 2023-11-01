@@ -66,6 +66,7 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 390px;
+  padding: 0 30px;
   margin-top: 30px;
 `;
 
