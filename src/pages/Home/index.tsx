@@ -55,9 +55,14 @@ export const HomePage = () => {
         );
       })}
       <AddPlanBtn />
+      <Version>2.0.3</Version>
     </HomePageContainer>
   );
 };
+
+const Version = styled.div`
+  display: hidden;
+`;
 
 const HomePageContainer = styled.div`
   display: flex;
