@@ -40,6 +40,7 @@ const KakaoLoginBtn = styled.button`
   border: none;
   background-color: transparent;
   padding: 0;
+  margin-bottom: 40px;
   img {
     width: 100%;
   }
